@@ -19,7 +19,7 @@ to abide by its terms.
 
 ```bash
 git clone https://github.com/decaf-ts/angular-app-template.git
-cd ptp-frontend-ew
+cd angular-template
 npm install
 npm run build
 ```

@@ -1,6 +1,6 @@
 {
-  "name": "PTP Frontend EW",
-  "short_name": "EW Frontend",
+  "name": "Angular Template",
+  "short_name": "Angular Template",
   "display": "standalone",
   "scope": "./",
   "start_url": "./",

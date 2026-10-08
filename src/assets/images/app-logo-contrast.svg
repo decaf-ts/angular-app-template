@@ -1,0 +1,5 @@
+<svg width="240" height="40" viewBox="0 0 240 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="2" y="2" width="36" height="36" rx="10" fill="#60A5FA"/>
+  <path d="M12 12h7a8 8 0 0 1 0 16h-7V12Zm6 5v6h1a3 3 0 0 0 0-6h-1Z" fill="#142033"/>
+  <text x="48" y="26" fill="white" font-family="Arial, sans-serif" font-size="17" font-weight="600">Angular Template</text>
+</svg>

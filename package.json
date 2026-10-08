@@ -1,7 +1,7 @@
 {
   "name": "@decaf/angular-app-template",
-  "version": "1.0.4",
-  "description": "PTP Frontend EW",
+  "version": "1.0.0",
+  "description": "Angular Template",
   "scripts": {
     "local:compose:restart": "DOCKER_APP=pdm-frontend node ./bin/local-docker-trafeik.js",
     "do-install": "NPM_TOKEN=$(cat .npmtoken) npm install",
@@ -44,7 +44,7 @@
     "docs": "npx rimraf ./docs && mkdir docs && npx build-scripts --docs",
     "publish-docs": "docker run -it --rm --user $(id -u):$(id -g) -v \"$(pwd)/workdocs/confluence:/content\" -e ATLASSIAN_API_TOKEN=$(cat .confluence-token) ghcr.io/markdown-confluence/publish:latest",
     "docker:login": "docker login ghcr.io -u user -p $(cat .token)",
-    "docker:remove-local": "docker rm -f $(docker ps -a -q --filter \"ancestor=ptp-frontend-ew-local\") 2>/dev/null || true && docker rm -f $(docker ps -a -q --filter \"name=ptp-frontend-ew-local\") 2>/dev/null || true && ids=$(docker images | grep 'ptp-frontend-ew-local' | awk '{print $3}') [ -n \"$ids\" ] && docker rmi -f"
+    "docker:remove-local": "docker rm -f $(docker ps -a -q --filter \"ancestor=angular-template-local\") 2>/dev/null || true && docker rm -f $(docker ps -a -q --filter \"name=angular-template-local\") 2>/dev/null || true && ids=$(docker images | grep 'angular-template-local' | awk '{print $3}') [ -n \"$ids\" ] && docker rmi -f"
   },
   "files": [
     "lib",

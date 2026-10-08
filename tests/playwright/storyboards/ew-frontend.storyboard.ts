@@ -16,7 +16,7 @@ import type {
  * highlights, copy -- lives here.
  *
  * The app under test is the Enterprise Wallet (EW) frontend, an Angular/Ionic
- * application backed by the PLA/EPI namespaces. No live PTP stack runs while the
+ * application backed by the PLA/EPI namespaces. No live backend stack runs while the
  * guide is generated, so the scenarios install a deterministic network-level mock of
  * the backend (`installMockBackend`): the runtime `window.ENV` is injected before
  * the bundle boots, authentication is answered with a signed-for-testing JWT, and
@@ -34,7 +34,7 @@ const baseUrl =
 
 const GUIDE_DIR = 'workdocs/confluence/EW Frontend Design Specifications';
 const SCREENSHOTS_DIR = path.posix.join(GUIDE_DIR, 'screenshots');
-const GUIDE_FILE = path.posix.join(GUIDE_DIR, 'PTP_EW_06_User_Manual.md');
+const GUIDE_FILE = path.posix.join(GUIDE_DIR, 'angular-template_06_User_Manual.md');
 
 const MOCK_HOST = 'localhost:9999';
 
@@ -77,7 +77,7 @@ const PRODUCT = {
   nameMedicinalProduct: 'Ibuprofen',
   internalMaterialCode: 'MAT-001',
   productRecall: false,
-  owner: 'PharmaLedger',
+  owner: 'Angular Template',
   batches: 3,
   strengths: [
     { productCode: PRODUCT_CODE, substance: 'Ibuprofen', strength: '400mg' },
@@ -88,24 +88,24 @@ const PRODUCT = {
       productCode: PRODUCT_CODE,
       marketId: 'eu',
       nationalCode: 'PT',
-      mahName: 'PharmaLedger Association',
-      legalEntityName: 'PharmaLedger Association',
+      mahName: 'Example Organization',
+      legalEntityName: 'Example Organization',
       mahAddress: 'Rua da Prata 1, Lisbon, Portugal',
     },
     {
       productCode: PRODUCT_CODE,
       marketId: 'us',
       nationalCode: 'US',
-      mahName: 'PharmaLedger Association',
-      legalEntityName: 'PharmaLedger Association',
+      mahName: 'Example Organization',
+      legalEntityName: 'Example Organization',
       mahAddress: '100 Independence Ave, Washington, DC, United States',
     },
   ],
   createdAt: NOW,
   updatedAt: UPDATED,
   version: 2,
-  createdBy: 'ptp-admin',
-  updatedBy: 'ptp-admin',
+  createdBy: 'angular-template-admin',
+  updatedBy: 'angular-template-admin',
 };
 
 const BATCH = {
@@ -126,8 +126,8 @@ const BATCH = {
   createdAt: NOW,
   updatedAt: UPDATED,
   version: 1,
-  createdBy: 'ptp-admin',
-  updatedBy: 'ptp-admin',
+  createdBy: 'angular-template-admin',
+  updatedBy: 'angular-template-admin',
 };
 
 /** External documents referenced by the leaflet fixture. */
@@ -159,8 +159,8 @@ const LEAFLET = {
   createdAt: NOW,
   updatedAt: UPDATED,
   version: 1,
-  createdBy: 'ptp-admin',
-  updatedBy: 'ptp-admin',
+  createdBy: 'angular-template-admin',
+  updatedBy: 'angular-template-admin',
 };
 
 const LEAFLET_FILE = {
@@ -185,7 +185,7 @@ const LEAFLET_FILES = [
 const AUDIT_ENTRIES = [
   {
     id: 1,
-    user: 'ptp-admin',
+    user: 'angular-template-admin',
     group: 'pharmaledgerassoc',
     transaction: 'create',
     action: 'product',
@@ -195,7 +195,7 @@ const AUDIT_ENTRIES = [
   },
   {
     id: 2,
-    user: 'ptp-admin',
+    user: 'angular-template-admin',
     group: 'pharmaledgerassoc',
     transaction: 'update',
     action: 'batch',
@@ -205,7 +205,7 @@ const AUDIT_ENTRIES = [
   },
   {
     id: 3,
-    user: 'ptp-admin',
+    user: 'angular-template-admin',
     group: 'pharmaledgerassoc',
     transaction: 'create',
     action: 'leaflet',
@@ -215,7 +215,7 @@ const AUDIT_ENTRIES = [
   },
   {
     id: 4,
-    user: 'ptp-admin',
+    user: 'angular-template-admin',
     group: 'pharmaledgerassoc',
     transaction: 'update',
     action: 'product',
@@ -227,7 +227,7 @@ const AUDIT_ENTRIES = [
 
 const TASK = {
   id: 'task-001',
-  userId: 'ptp-admin',
+  userId: 'angular-template-admin',
   atomicity: 'atomic',
   classification: 'product',
   name: 'Create product 12345678901234',
@@ -250,11 +250,11 @@ const TOKEN = {
 
 const ACCOUNT = {
   id: 1,
-  legalName: 'PharmaLedger Association',
+  legalName: 'Example Organization',
   deployed: true,
   token: 'enroll-token-001',
   mspId: 'pharmaledgerassoc',
-  endpoint: 'https://ptp.pharmaledger.eu',
+  endpoint: 'https://api.example.com',
   createdAt: NOW,
   updatedAt: UPDATED,
 };
@@ -344,7 +344,7 @@ button{padding:8px 18px;font-size:14px;border:none;border-radius:4px;background:
 a{font-size:12px;color:#0066cc;text-decoration:none}
 </style></head><body>
 <main><div class="card">
-<div class="brand"><span class="mark"></span><strong>PharmaLedger</strong></div>
+<div class="brand"><span class="mark"></span><strong>Angular Template</strong></div>
 <h1>Sign in to your account</h1>
 <form id="kc-form-login" action="#" method="post">
 <label for="username">Username or email</label>
@@ -481,7 +481,7 @@ const sections: StoryboardSection[] = [
     title: SECTION_GETTING_STARTED,
     intro: `The Enterprise Wallet (EW) is the web application used by marketing authorisation holders and
 national competent authorities to publish, maintain and audit medicinal product data (products, batches and
-electronic product information documents) on the PharmaLedger network.
+electronic product information documents) on the product network.
 
 The application is delivered as a single responsive Ionic application. All authenticated pages share the same
 shell: a top header with the application title, operation shortcuts and the account avatar, and a collapsible side
@@ -521,7 +521,7 @@ wallet. It supports searching, sorting and paging, and can be exported to CSV.`,
   {
     title: SECTION_TASKS,
     intro: `The Tasks section tracks the asynchronous jobs the wallet runs (for example product metadata
-propagation to the PTP cache). Tasks are only shown to PLA accounts.`,
+propagation to the backend cache). Tasks are only shown to PLA accounts.`,
   },
   {
     title: SECTION_ADMIN,
@@ -571,7 +571,7 @@ const scenarios: StoryboardScenario[] = [
     description: `Opening the wallet starts the Keycloak single sign-on flow, which lands on the identity provider's
 sign-in screen. The user signs in with their network credentials; the wallet never receives or stores the password.`,
     notes: [
-      '**1** PharmaLedger identity provider.',
+      '**1** Identity provider.',
       '**2** Username or email.',
       '**3** Password.',
       '**4** **Sign In** submits the credentials and returns the user to the wallet.',
@@ -591,7 +591,7 @@ sign-in screen. The user signs in with their network credentials; the wallet nev
     section: SECTION_GETTING_STARTED,
     title: 'Sign in to the wallet',
     description: `The sign-in screen is the application landing page. While the wallet checks whether a valid session
-already exists it shows the PharmaLedger logo; if no session is found the single sign-on flow starts automatically. The
+already exists it shows the application logo; if no session is found the single sign-on flow starts automatically. The
 **Login** button is the manual fallback for the rare case where the automatic redirect is blocked.`,
     notes: [
       '**1** Application logo.',
@@ -724,7 +724,7 @@ is optional.`,
     section: SECTION_PRODUCTS,
     title: 'Create a product — image and recall',
     description: `The product image is uploaded from the local file system and the **product recall** switch marks the
-product as recalled. The image is optional but, when set, is propagated to the PTP cache.`,
+product as recalled. The image is optional but, when set, is propagated to the backend cache.`,
     notes: [
       '**1** Product image upload.',
       '**2** Product recall switch.',

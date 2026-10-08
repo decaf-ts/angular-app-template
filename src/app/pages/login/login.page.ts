@@ -49,7 +49,7 @@ export class LoginPage extends NgxPageDirective implements OnInit {
 
   AppName: string = AppName;
 
-  image: string = 'assets/images/favicon-contrast.svg';
+  image: string = 'assets/images/app-mark.svg';
 
   error: boolean = false;
 

@@ -191,6 +191,25 @@ ion-menu {
   &::before {
     transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
   }
+
+  > svg {
+    display: none;
+  }
+
+  .dcf-logo-mark {
+    display: flex;
+    position: relative;
+    z-index: 1;
+    align-items: center;
+    justify-content: center;
+    width: 25px;
+    height: 25px;
+    border-radius: 0.35rem;
+    background: var(--dcf-color-primary);
+    color: white;
+    font-size: 0.5rem;
+    font-weight: 700;
+  }
 }
 
 .dcf-logo-text {

@@ -19,10 +19,10 @@ export class LogoComponent implements OnInit {
   showAngularLogo = false;
 
   @Input()
-  logo = '/assets/images/pharmaledger.svg';
+  logo = '/assets/images/app-logo.svg';
 
   @Input()
-  logoContrast = '/assets/images/pharmaledger-contrast.svg';
+  logoContrast = '/assets/images/app-logo-contrast.svg';
 
   @Input()
   width: number | string = 180;

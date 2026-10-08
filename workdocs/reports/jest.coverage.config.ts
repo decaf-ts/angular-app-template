@@ -25,7 +25,7 @@ const config: Config.InitialOptions = {
         filename: 'test-report.html',
         openReport: true,
         expand: true,
-        pageTitle: 'ptp-frontend-ew Test Report',
+        pageTitle: 'angular-template Test Report',
         stripSkippedTest: true,
         darkTheme: true,
         enableMergeData: true,

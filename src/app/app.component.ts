@@ -83,7 +83,7 @@ export class AppComponent extends NgxEwBasePage implements OnInit {
   menuFixed: boolean = false;
   showCollapseButton: boolean = true;
 
-  appDescription: string = 'Product Trust Platform';
+  appDescription: string = 'Angular Template';
 
   loggedIn: boolean = false;
 
@@ -104,7 +104,7 @@ export class AppComponent extends NgxEwBasePage implements OnInit {
    */
   async ngOnInit(): Promise<void> {
     this.hasMenu.set(true);
-    this.title = 'PTP Frontend';
+    this.title = 'Angular Template';
     this.appName = AppName;
     await this.initialize();
   }

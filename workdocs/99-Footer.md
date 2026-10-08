@@ -7,7 +7,7 @@
 
 ## Getting help
 
-If you have bug reports, questions or suggestions, please [create a new issue](https://github.com/pharmaledgerassoc/ptp-frontend-ew/issues/new/choose).
+If you have bug reports, questions or suggestions, please [create a new issue](https://github.com/decaf-ts/angular-app-template/issues/new/choose).
 
 ## Contributing
 
