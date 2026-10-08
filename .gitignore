@@ -1,28 +1,289 @@
-# Angular specific
-/dist/
-/out-tsc/
-/tmp/
-/coverage/
-/e2e/test-output/
-/.angular/
-.angular/
+# Specifies intentionally untracked files to ignore when using Git
+# http://git-scm.com/docs/gitignore
 
-# Node modules and dependency files
-/node_modules/
-/package-lock.json
-/yarn.lock
+*~
+*.sw[mnpcod]
+.tmp
+*.tmp
+*.tmp.*
+UserInterfaceState.xcuserstate
+$RECYCLE.BIN/
 
-# Environment files
-/.env
+*.log
+log.txt
 
-# Angular CLI and build artefacts
-/.angular-cli.json
-/.ng/
 
-# TypeScript cache
-*.tsbuildinfo
+/.sourcemaps
+/.versions
+/coverage
 
-# Logs
+# Ionic
+/.ionic
+/www
+/platforms
+/plugins
+
+# Compiled output
+/dist
+/tmp
+/out-tsc
+/bazel-out
+
+# Node
+/node_modules
+npm-debug.log
+yarn-error.log
+
+# IDEs and editors
+.idea/
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-project
+*.sublime-workspace
+
+# Visual Studio Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+
+
+# Miscellaneous
+/.angular
+/.angular/cache
+.sass-cache/
+/.nx
+/.nx/cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+testem.log
+/typings
+
+# System files
+.DS_Store
+Thumbs.db
+
+
+/lib
+/dist
+/docs
+/workdocs/drawings/*
+!/workdocs/drawings/*.drawio
+/workdocs/resources/*
+/workdocs/reports/**/*
+!/workdocs/reports/data
+/workdocs/reports/data/*
+!/workdocs/reports/data/.gitkeep
+!/workdocs/reports/images
+/workdocs/reports/images/*
+!/workdocs/reports/images/.gitkeep
+!/workdocs/reports/jest.coverage.config.ts
+/workdocs/uml/*
+!/workdocs/uml/*.puml
+/.token
+/.npmtoken
+/.dockertoken
+/.dockeruser
+/.confluence-token
+/node_modules
+!.gitkeep
+/playwright-report
+/test-results
+/tests/playwright/videos/*/*
+!/tests/playwright/videos/*/.gitkeep
+
+# Playwright
+node_modules/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/
+/.playwright-mcp
+/.agents
+
+# ============================================================
+# Preserve managed AI project state - MUST come before any broad ignore
+# ============================================================
+!workdocs/ai/
+!workdocs/ai/**
+!workdocs/ai/project/
+!workdocs/ai/project/**
+
+# ============================================================
+# Ignore Recursivo
+# ============================================================
+**/.llm-wiki/**
+**/.graphify-out
+**/.agents
+**/.claude
+**/.openclaude
+**/.aimemory
+**/.aimemory.toml
+**/.codex
+**/.codegraph
+**/.omo
+**/.opencode
+**/.cursor
+**/.tlc
+**/.antigravity
+**/.mcp.json
+mailpit.md
+
+# Playwright
+**/.playwright
+**/.playwright-cli
+**/.playwright-mcp
+
+# Arquivos de ambiente
+.env.*
+!.env-sample
+!.env-template
+!.env.example
+
+**/*bkp*
+**/*copy*
+**/*_old*
+
+# Chaves e certificados
+**/.env
+**/.envrc
+**/*.key
+**/*.pem
+**/*.cert
+**/*.crt
+**/*.p12
+**/*.pfx
+**/id_rsa*
+**/id_ed25519*
+**/*.ppk
+
+# Tokens e credenciais
+**/.npmtoken
+**/.token
+**/.npmrc
+**/auth.json
+**/credentials.json
+**/service-account*.json
+**/.htpasswd
+**/.netrc
+
+# Cloud e deploy
+**/.aws/
+**/.gcloud/
+**/.kube/
+**/kubeconfig*
+
+# ============================================================
+# Banco de dados e dumps
+# ============================================================
+
+**/*.sql
+**/*.dump
+**/*.sqlite
+**/*.sqlite3
+**/*.db
+!**/migrations/**/*.sql
+!**/seeds/**/*.sql
+
+# ============================================================
+# Node / Angular / Ionic
+# ============================================================
+
+**/node_modules/
+**/www/
+
+# Angular / Ionic metadata
+**/.angular/
+
+# Keystores Android (assinatura de app)
+**/*.keystore
+**/*.jks
+
+# ============================================================
+# Docker
+# ============================================================
+
+docker-compose.override.yml
+
+# ============================================================
+# Logs e debug
+# ============================================================
+
+**/*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
+
+# ============================================================
+# OS e editores
+# ============================================================
+
+**/.DS_Store
+**/.DS_Store?
+**/._*
+**/Thumbs.db
+**/ehthumbs.db
+**/Desktop.ini
+
+# IDEs
+**/.idea/
+**/.vscode/
+**/*.sublime-project
+**/*.sublime-workspace
+**/*.swp
+**/*.swo
+**/*~
+
+# Preserve existing root VS Code configuration exceptions.
+!.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# ============================================================
+# Misc
+# ============================================================
+
+**/*.bak
+**/*.tmp
+**/*.temp
+
+tests/resources/credentials.json
+**/test-results
+**/workdocs/reports/evidences
+**/playwright-report
+.ai-memory.toml
+/graphify-out
+CLAUDE.md
+
+# --- repository-init appended (re-run) ---
+**/cache/
+**/logs/
+**/session/
+**/debugbar/
+**/secrets/
+**/_node_modules/
+**/dist/
+**/tmp/
+**/angular/node_modules/
+**/angular/dist/
+**/angular/.angular/
+**/angular/.ionic/
+**/.ionic/
+**/__pycache__
+**/.docker/data/
+**/coverage/
+**/.nyc_output/
+**/workdocs/reports/coverage/
+**/.cache/
+**/.sass-cache/
+**/__pycache__
+AGENTS.md
+.specs

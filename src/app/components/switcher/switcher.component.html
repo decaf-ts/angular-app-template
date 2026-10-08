@@ -1,0 +1,159 @@
+<div [class]="'dcf-switcher-component ' + className">
+  @if (type === 'switcher' || type === 'tabs') {
+    <div
+      class="dcf-grid dcf-grid-small dcf-switcher-grid dcf-width-1-1"
+      [class.dcf-grid-match]="mode === 'button'"
+    >
+      @if (items.length > 1) {
+        <div
+          [class]="
+            position === 'left'
+              ? 'dcf-width-auto@xl uk-width-1-1 left'
+              : 'dcf-width-1-1 top'
+          "
+        >
+          <ul
+            [class]="
+              'dcf-switcher dcf-switcher-' + mode + ' dcf-switcher-' + position
+            "
+          >
+            <li
+              (keyup.enter)="
+                type === 'switcher' ? getActivePage($index) : navigate($index)
+              "
+              tabindex="0"
+              *ngFor="let item of items; let $index = index"
+              [class.dcf-active]="activeIndex === $index"
+              (click)="
+                type === 'switcher'
+                  ? getActivePage($index, false)
+                  : navigate($index)
+              "
+            >
+              <a>
+                @if (item.icon) {
+                  <ngx-decaf-icon
+                    [color]="activeIndex === $index ? 'light' : 'dark'"
+                    [name]="item.icon"
+                  ></ngx-decaf-icon>
+                }
+                {{ item.title | translate }}
+              </a>
+            </li>
+          </ul>
+        </div>
+      }
+      @if (type === 'switcher') {
+        <div
+          [class]="
+            position === 'left'
+              ? 'dcf-switcher-content dcf-width-expand@l'
+              : 'dcf-switcher-content dcf-width-1-1'
+          "
+        >
+          <div>
+            @if (['create', 'update'].includes(operation)) {
+              @if (activePage) {
+                <div
+                  class="dcf-animation dcf-animation-slide-left-small dcf-animation-medium dcf-margin-top"
+                  #switcherContent
+                >
+                  <ngx-decaf-component-renderer
+                    [id]="activePage.props.name.toLowerCase() + '-switcher'"
+                    [tag]="activePage.tag"
+                    [parentForm]="parentForm"
+                    [children]="activePage?.children || []"
+                    (listenEvent)="handleEvent($event)"
+                    [globals]="{ props: activePage.props, operation }"
+                  />
+                </div>
+              }
+            } @else {
+              @for (child of children; track child) {
+                <div
+                  class="dcf-animation dcf-animation-slide-left-small dcf-animation-medium dcf-margin-top"
+                  #switcherContent
+                  [hidden]="$index !== activeIndex"
+                  [class.read]="operation === 'read'"
+                >
+                  <ngx-decaf-component-renderer
+                    [tag]="child.tag"
+                    [id]="child.props.name.toLowerCase() + '-switcher'"
+                    [parentForm]="parentForm"
+                    [children]="child?.children || []"
+                    (listenEvent)="handleEvent($event)"
+                    [globals]="{ props: child.props }"
+                  />
+                </div>
+              }
+            }
+          </div>
+        </div>
+      }
+    </div>
+  }
+
+  @if (type === 'column') {
+    <div class="dcf-switcher-column">
+      @for (child of children; track child; let childIndex = $index) {
+        @if (child.props.name === 'Leaflet') {
+          @if (operation !== 'create') {
+            <div class="dcf-column">
+              @for (item of items; track item) {
+                @if (item.index === childIndex && item.showTitle) {
+                  <p class="dcf-title">{{ item.title | translate }}</p>
+                }
+              }
+              <div
+                [id]="child.props.name.toLowerCase() + '-switcher'"
+                [class]="child.tag"
+              >
+                <ngx-decaf-component-renderer
+                  [tag]="child.tag"
+                  (listenEvent)="handleEvent($event)"
+                  [parentForm]="parentForm"
+                  [operation]="operation"
+                  [children]="child?.children || []"
+                  [globals]="{ props: child.props, operation }"
+                />
+              </div>
+
+              <div class="dcf-text-center dcf-margin">
+                <ion-button
+                  appAllowedFor
+                  [role]="accessControlRole"
+                  size="small"
+                  fill="clear"
+                  (click)="handleNavigateToLeaflet()"
+                >
+                  {{ locale + '.leaflet' | translate }}
+                </ion-button>
+              </div>
+            </div>
+          }
+        } @else {
+          <div class="dcf-column">
+            @for (item of items; track item) {
+              @if (item.index === childIndex && item.showTitle) {
+                <p class="dcf-title">{{ item.title | translate }}</p>
+              }
+            }
+            <div
+              [id]="child.props.name.toLowerCase() + '-switcher'"
+              [class]="child.tag"
+            >
+              <ngx-decaf-component-renderer
+                [tag]="child.tag"
+                (listenEvent)="handleEvent($event)"
+                [parentForm]="parentForm"
+                [operation]="operation"
+                [children]="child?.children || []"
+                [globals]="{ props: child.props, operation }"
+              />
+            </div>
+          </div>
+        }
+      }
+    </div>
+  }
+</div>

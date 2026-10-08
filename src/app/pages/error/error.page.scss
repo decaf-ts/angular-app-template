@@ -1,0 +1,29 @@
+.dcf-icon {
+  width: 40px;
+  height: 40px;
+  background: rgba(var(--dcf-color-danger-rgb), 0.2) !important;
+  border-radius: 50%;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  margin-right: var(--dcf-margin-small);
+  ngx-decaf-icon ::ng-deep .ti {
+    font-size: 1.75rem !important;
+    line-height: 1.75rem;
+    position: relative;
+    left: 1px;
+    top: 1px;
+  }
+}
+
+.dcf-message {
+  margin: 1rem 0rem;
+  font-weight: 600;
+}
+
+::ng-deep {
+  ion-menu {
+    display: none !important;
+  }
+}

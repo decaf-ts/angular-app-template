@@ -1,0 +1,223 @@
+$active-color: white;
+.dcf-menu-component {
+  pointer-events: none;
+  touch-action: none;
+  padding: 0rem 0.75rem;
+  padding-top: 1rem;
+  ion-item {
+    ngx-decaf-icon {
+      transform: translateY(0px) !important;
+    }
+  }
+  &.dcf-palette-dark {
+    @media (min-width: 1200px) {
+      &.dcf-collapsable {
+        ion-content {
+          border-top: 1px solid var(--dcf-background-color) !important;
+        }
+      }
+    }
+    ::ng-deep {
+      .ti,
+      ion-icon,
+      aeon-icon {
+        color: var(--ion-color-gray-4) !important;
+      }
+    }
+
+    > *,
+    ion-content {
+      background: var(--dcf-item-background, var(--dcf-background-color, #fff)) !important;
+    }
+
+    ion-list-header,
+    .dcf-separator {
+      color: var(--ion-color-gray-3) !important;
+    }
+
+    ion-item {
+      &:not(.dcf-separator) {
+        ion-label {
+          color: var(--dcf-color-light);
+        }
+      }
+      &.dcf-active-item,
+      &.dcf-active {
+        --background: rgba(var(--dcf-color-dark-rgb), 0.3) !important;
+        color: var(--dcf-color-gray-9) !important;
+        .ti,
+        ion-icon,
+        aeon-icon {
+          color: var(--ion-color-gray-2) !important;
+        }
+      }
+      &:hover {
+        --background: rgba(var(--dcf-color-dark-rgb), 0);
+        --color: rgba(var(--dcf-color-light-rgb), 1);
+
+        ::ng-deep {
+          .ti,
+          ngx-decaf-icon,
+          ion-icon,
+          ion-image {
+            color: var(--ion-color-gray-2) !important;
+            stroke: var(--ion-color-gray-2) !important;
+
+            * {
+              color: var(--ion-color-gray-2) !important;
+              stroke: var(--ion-color-gray-2) !important;
+            }
+          }
+        }
+      }
+    }
+  }
+  &.dcf-collapsable {
+    @media (min-width: 1200px) {
+      ion-content {
+        border-top: 1px solid var(--dcf-color-gray-2);
+      }
+    }
+
+    ion-item {
+      &:first-of-type:not(.dcf-separator:not(:first-of-type)) {
+        margin-top: 0.5rem;
+      }
+    }
+  }
+
+  ion-content {
+    --background: var(--ion-item-background, var(--ion-background-color, #fff)) !important;
+  }
+
+  ion-list-header,
+  .dcf-separator {
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    pointer-events: none !important;
+    touch-action: none !important;
+    --padding-start: var(--dcf-padding-small) !important;
+    --min-height: 40px;
+    margin-top: 0.5rem;
+    cursor: text;
+    color: var(--ion-color-gray-5);
+    &:not(:first-child) {
+      border-top: 1px solid var(--dcf-color-gray-1);
+    }
+    ion-label {
+      font-size: 0.8125rem !important;
+    }
+    ion-icon {
+      margin-right: 0.5rem;
+      font-size: 0.975rem !important;
+    }
+  }
+
+  ion-item {
+    --border-radius: var(--dcf-border-radius);
+    --background: white;
+    pointer-events: auto !important;
+    touch-action: auto !important;
+    ngx-decaf-icon {
+      margin-right: var(--dcf-margin-xsmall);
+      transform: translateY(1px);
+    }
+
+    &:hover {
+      &:not(.dcf-color) {
+        --background: rgba(var(--dcf-color-primary-rgb), 0.75) !important;
+        color: $active-color !important;
+        * {
+          color: $active-color !important;
+        }
+        ::ng-deep {
+          .ti,
+          ngx-decaf-icon,
+          ion-icon,
+          ion-image {
+            color: $active-color !important;
+            stroke: $active-color !important;
+
+            * {
+              color: $active-color !important;
+              stroke: $active-color !important;
+            }
+          }
+        }
+      }
+    }
+    &.dcf-active-item,
+    &.dcf-active {
+      --background: rgba(var(--dcf-color-primary-rgb), 1) !important;
+      color: $active-color !important;
+    }
+
+    &:not(.dcf-separator) {
+      font-size: 0.975rem !important;
+      font-weight: 400 !important;
+      cursor: pointer;
+      margin-bottom: 0.1rem;
+    }
+  }
+}
+ion-list {
+  ion-item {
+    max-width: 240px !important;
+    ion-label {
+      transform: translateX(0);
+      font-weight: 500 !important;
+      transition:
+        opacity 1.2s cubic-bezier(0.25, 0.8, 0.25, 1),
+        transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+      opacity: 1;
+    }
+  }
+  @media (min-width: 1200px) {
+    &.dcf-collapsed {
+      padding-top: 1rem !important;
+      padding-left: 0.24rem !important;
+
+      .dcf-separator {
+        display: none;
+      }
+
+      ion-item {
+        max-width: 65px;
+        margin-left: 0.5rem;
+
+        --inner-padding-end: 0.5rem !important;
+        --padding-end: 0rem !important;
+        --inner-padding-start: 0.85rem !important;
+        --padding-start: 0rem !important;
+        ion-label {
+          position: absolute;
+          transform: translateX(-101%);
+          transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+          opacity: 0;
+        }
+
+        &:first-of-type:not(.dcf-separator:not(:first-of-type)) {
+          margin-top: 0.5rem;
+        }
+
+        &:hover {
+          ::ng-deep {
+            .ti,
+            ngx-decaf-icon,
+            ion-icon,
+            ion-image {
+              color: var(--dcf-color-primary) !important;
+              stroke: var(--dcf-color-primary) !important;
+
+              * {
+                color: var(--ion-color-primary) !important;
+                stroke: var(--dcf-color-primary) !important;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

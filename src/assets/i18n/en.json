@@ -1,0 +1,885 @@
+{
+  "component": {
+    "modal_diffs": {
+      "property": "Property",
+      "oldValue": "Old Value",
+      "newValue": "New Value"
+    },
+    "switcher": {
+      "leaflet": "Create ePI Document"
+    }
+  },
+  "menu": {
+    "core": "Core",
+    "astratrace": "Astratrace",
+    "login": "Login",
+    "dashboard": "Dashboard",
+    "tabs": "Tabs",
+    "products": "Products & Batches",
+    "batches": "Batches",
+    "logout": "Logout",
+    "audit": "Audit",
+    "account": "Account",
+    "collapsible": "Collapsible sidebar",
+    "fixed": "Fixed sidebar",
+    "leaflets": "Leaflets",
+    "tasks": "Tasks",
+    "resolvers": "Resolvers",
+    "admin": "Administration",
+    "admin.enrollments": "Enrollments",
+    "admin.accounts": "Accounts"
+  },
+  "epiTabs": {
+    "products": "Products",
+    "batches": "Batches"
+  },
+  "logTabs": {
+    "access": "Access Logs",
+    "actions": "Action Logs"
+  },
+  "dashboard": {
+    "title": "Control Panel",
+    "description": "Your ew overview",
+    "cards": {
+      "product": {
+        "title": "Products",
+        "description": "Manage and view pharmaceutical products"
+      },
+      "batch": {
+        "title": "Batches",
+        "description": "Manage and view product batches"
+      },
+      "account": {
+        "title": "Account",
+        "description": "Manage your account settings"
+      },
+      "leaflet": {
+        "title": "Leaflets",
+        "description": "Manage and view product leaflets"
+      },
+      "task": {
+        "title": "Tasks",
+        "description": "Manage and view tasks"
+      }
+    }
+  },
+  "login": {
+    "authenticating": "Autenticating with SSO provider...",
+    "validating": "Validating your data",
+    "username": {
+      "label": "Username",
+      "placeholder": "Type your username"
+    },
+    "password": {
+      "label": "Password",
+      "placeholder": "Type your password"
+    }
+  },
+  "error": {
+    "title": "Error",
+    "generic": "An unexpected error has occurred.",
+    "notFound": "The page you are looking for does not exist.",
+    "back": "Back",
+    "login": "You are not authorized to access this page. Please log in.",
+    "permission": "You do not have permission to access requested page."
+  },
+  "diffs": {
+    "continue": "Continue",
+    "cancel": "Cancel"
+  },
+  "product": {
+    "title": "Products",
+    "create": "Create Product",
+    "update": "Update Product",
+    "read": "Product Details",
+    "delete": "Product Details",
+    "description": "Manage your pharmaceutical products information",
+    "gtin": "GTIN",
+    "section": {
+      "details": {
+        "title": "Product Details"
+      },
+      "image": {
+        "title": "Product Image"
+      },
+      "epi": {
+        "title": "Epi Information"
+      }
+    },
+    "leaflet": {
+      "label": "ePI Document"
+    },
+    "owner": {
+      "label": "Owner"
+    },
+    "diffs": {
+      "title": "Product Update Data Summary",
+      "property": "Property",
+      "oldValue": "Old Value",
+      "newValue": "New Value"
+    },
+    "batches": "Active Batches",
+    "recalled": {
+      "label": "Recalled",
+      "yes": "Yes",
+      "no": "No"
+    },
+    "documents": {
+      "label": "Documents"
+    },
+    "strengths": {
+      "label": "Strengths"
+    },
+    "markets": {
+      "label": "Markets"
+    },
+    "productCode": {
+      "label": "Product Code",
+      "placeholder": "Enter the product code"
+    },
+    "inventedName": {
+      "label": "Invented Name",
+      "placeholder": "Enter the Invented Name"
+    },
+    "namemedicinalproduct": {
+      "label": "Medicinal Product Name",
+      "placeholder": "Enter the name of the medicinal product"
+    },
+    "internalMaterialCode": {
+      "label": "Internal Material Code",
+      "placeholder": "Enter the internal material code"
+    },
+    "importLicenseNumber": {
+      "label": "Import License Number",
+      "placeholder": "Enter the import license number"
+    },
+    "nameMedicinalProduct": {
+      "label": "Medicinal Product Name",
+      "placeholder": "Enter the name of the medicinal product"
+    },
+    "resolvedBy": {
+      "label": "Resolved by"
+    },
+    "productRecall": {
+      "label": "Mark Product as Recalled"
+    },
+    "imageData": {
+      "label": "Product image"
+    },
+    "productImage": {
+      "label": "Select product image"
+    },
+    "xmlFileContent": {
+      "label": "Select directory or drop your epi files here",
+      "placeholder": "Select the Epi File"
+    },
+    "createdBy": {
+      "label": "Created By"
+    },
+    "createdAt": {
+      "label": "Created At"
+    },
+    "updatedBy": {
+      "label": "Updated By"
+    },
+    "updatedAt": {
+      "label": "Updated At"
+    },
+    "version": {
+      "label": "Version"
+    },
+    "marketId": {
+      "label": "Market ID"
+    },
+    "nationalCode": {
+      "label": "National Code"
+    },
+    "mahName": {
+      "label": "MAH Name"
+    },
+    "legalEntityName": {
+      "label": "Legal Entity Name"
+    },
+    "mahAddress": {
+      "label": "MAH Address"
+    },
+    "substance": {
+      "label": "Substance Name"
+    },
+    "strength": {
+      "label": "Substance Strength"
+    }
+  },
+  "batch": {
+    "title": "Batches",
+    "create": "Add Batch",
+    "update": "Update Batch",
+    "read": "Batch Details",
+    "delete": "Batch Details",
+    "description": "Manage batches information",
+    "filter_by": "Filter by Product",
+    "filter": {
+      "label": "Filter by",
+      "all": "All Products"
+    },
+    "empty": {
+      "products": "To create your first batch, you need to register at least one product.",
+      "batches": "No batches found.",
+      "button": "Create Product"
+    },
+    "owner": {
+      "label": "Owner"
+    },
+    "id": {
+      "label": "ID"
+    },
+    "dataMatrix": {
+      "title": "2D Datamatrix",
+      "label": "2D Datamatrix View",
+      "preview": "GTIN: {0} <span class=\"dcf-datamatrix-preview-helper\">Batch: {1} (Preview)</span>",
+      "view": "<a>View</a>",
+      "description": "Batch Data Matrix Code"
+    },
+    "leaflet": {
+      "label": "ePI Document",
+      "empty": {
+        "title": "No epi documents found",
+        "button": "Add Batch"
+      }
+    },
+    "diffs": {
+      "title": "Update Data Summary",
+      "property": "Property",
+      "oldValue": "Old Value",
+      "newValue": "New Value",
+      "expiryDate": "{0} <span class=\"dcf-diffs-expiry-date\">GS1 Format ({1})</span>"
+    },
+    "productCode": {
+      "label": "Product Code",
+      "placeholder": "Enter the product code",
+      "options": {
+        "aspirin": "Aspirin",
+        "paracetamol": "Paracetamol",
+        "ibuprofen": "Ibuprofen",
+        "amoxicillin": "Amoxicillin",
+        "azithromycin": "Azithromycin",
+        "metformin": "Metformin"
+      }
+    },
+    "actions": {
+      "label": "Actions"
+    },
+    "inventedName": {
+      "label": "Invented Name",
+      "placeholder": "Enter the Invented Name"
+    },
+    "namemedicinalproduct": {
+      "label": "Medicinal Product Name",
+      "placeholder": "Enter the name of the medicinal product"
+    },
+    "nameMedicinalProduct": {
+      "label": "Medicinal Product Name",
+      "placeholder": "Enter the name of the medicinal product"
+    },
+    "batchNumber": {
+      "label": "Batch Number",
+      "placeholder": "Enter the batch number"
+    },
+    "dayselection": {
+      "label": "Enable Day Selection<span class=\"dcf-expiry-date-helper\">GS1 Format {0}</span>"
+    },
+    "expiryDate": {
+      "label": "Expiry Date",
+      "placeholder": "Enter the expiry date",
+      "gs1Format": "{0} <span class=\"dcf-form-expiry-date\">GS1 Format ({1})</span>"
+    },
+    "packagingSiteName": {
+      "label": "Packaging Site Name",
+      "placeholder": "Enter the packaging site name"
+    },
+    "importLicenseNumber": {
+      "label": "Import License Number",
+      "placeholder": "Enter the import license number"
+    },
+    "manufacturerName": {
+      "label": "Manufacturer Name",
+      "placeholder": "Enter the manufacturer name"
+    },
+    "manufacturerAddress": {
+      "label": "Manufacturer Address",
+      "line": "Address Line",
+      "placeholder": "Enter the manufacturer address"
+    },
+    "dateOfManufacturing": {
+      "label": "Date of Manufacturing",
+      "placeholder": "Enter the date of manufacturing"
+    },
+    "batchRecall": {
+      "label": "Mark Batch as Recalled"
+    },
+    "createdBy": {
+      "label": "Created By"
+    },
+    "createdAt": {
+      "label": "Created At"
+    },
+    "updatedBy": {
+      "label": "Updated By"
+    },
+    "updatedAt": {
+      "label": "Updated At"
+    },
+    "version": {
+      "label": "Version"
+    }
+  },
+  "leaflet": {
+    "title": "ePI Document",
+    "description": "Submit and track your electronic Product Information",
+    "create": "Add ePI Document",
+    "update": "Update ePI Document",
+    "read": "ePI Document Details",
+    "delete": "ePI Document",
+    "deleting": "Deleting ePI Document",
+    "filter_by": "Filter by Product",
+    "empty": {
+      "products": "To create your first Epi Document, you need to create at least one product.",
+      "leaflets": "No leaflets found.",
+      "button": "Create Product"
+    },
+    "diffs": {
+      "title": "Data Summary",
+      "property": "Property",
+      "oldValue": "Old Value",
+      "newValue": "New Value",
+      "confirmation": {
+        "title": "Attention",
+        "message": "This action will update an existing ePI document with the new files. Do you want to proceed?"
+      }
+    },
+    "owner": {
+      "label": "Owner"
+    },
+    "file": {
+      "label": "Epi Document"
+    },
+    "filter": {
+      "label": "Filter by",
+      "all": "All Products"
+    },
+    "id": {
+      "label": "ID"
+    },
+    "documentCol": {
+      "label": "Document Name"
+    },
+    "batchCol": {
+      "label": "Batch Number"
+    },
+    "epiMarket": {
+      "label": "Market"
+    },
+    "actions": {
+      "label": "Actions"
+    },
+    "leafletType": {
+      "label": "Document Type"
+    },
+    "productCode": {
+      "label": "Product",
+      "placeholder": "Select the product"
+    },
+    "batchNumber": {
+      "label": "Batch",
+      "placeholder": "Select the batch"
+    },
+    "lang": {
+      "label": "Language",
+      "placeholder": "Select the language"
+    },
+    "type": {
+      "label": "Document type",
+      "placeholder": "Select the document type",
+      "options": {
+        "leaflet": "Patient Information",
+        "prescribinginfo": "Prescribing Information",
+        "medicalpractitionerinformation": "Medical Practitioner Information",
+        "scientificinformation": "Scientific Information",
+        "patientmedicationguide": "Patient Medication Guide",
+        "smpc": "SMPC"
+      }
+    },
+    "market": {
+      "label": "Market",
+      "placeholder": "Select the market"
+    },
+    "xmlFileContent": {
+      "label": "Epi File",
+      "placeholder": "Select the Epi File"
+    },
+    "externalFile": {
+      "label": "Additional Document",
+      "placeholder": "Select additional documents",
+      "select": "Select files",
+      "clear": "Clear",
+      "noPreview": "No preview available"
+    },
+    "createdBy": {
+      "label": "Created By"
+    },
+    "createdAt": {
+      "label": "Created At"
+    },
+    "updatedBy": {
+      "label": "Updated By"
+    },
+    "updatedAt": {
+      "label": "Updated At"
+    },
+    "version": {
+      "label": "Version"
+    }
+  },
+  "resolver": {
+    "title": "Resolver",
+    "description": "Submit and track your leaflet paths",
+    "create": "Create resolver",
+    "update": "Update resolver",
+    "read": "Resolver Details",
+    "delete": "Resolver",
+    "deleting": "Deleting resolver",
+    "filter_by": "Filter by id",
+    "empty": {
+      "products": "To create your first resolver, you need to create at least one product.",
+      "leaflets": "No leaflets found.",
+      "button": "Create Product"
+    },
+    "diffs": {
+      "title": "Data Summary",
+      "property": "Property",
+      "oldValue": "Old Value",
+      "newValue": "New Value",
+      "confirmation": {
+        "title": "Attention",
+        "message": "This action will update an existing resolver with the new files. Do you want to proceed?"
+      }
+    },
+    "urlStrings": {
+      "label": "Urls",
+      "labelSingle": "Urls",
+      "placeholder": "Urls"
+    },
+    "filter": {
+      "label": "Filter by",
+      "all": "All Resolvers"
+    },
+    "id": {
+      "label": "Name",
+      "placeholder": "Type resolver name"
+    },
+    "actions": {
+      "label": "Actions"
+    },
+    "createdBy": {
+      "label": "Created By"
+    },
+    "createdAt": {
+      "label": "Created At"
+    },
+    "updatedBy": {
+      "label": "Updated By"
+    },
+    "updatedAt": {
+      "label": "Updated At"
+    },
+    "version": {
+      "label": "Version"
+    }
+  },
+  "substance": {
+    "name": {
+      "label": "Substance Name",
+      "placeholder": "Enter the substance name"
+    },
+    "strength": {
+      "label": "Substance Strength",
+      "placeholder": "Enter the substance strength"
+    }
+  },
+  "market": {
+    "id": {
+      "label": "Select Country",
+      "placeholder": "Select Country"
+    },
+    "nationalCode": {
+      "label": "National Code",
+      "placeholder": "Enter the national code"
+    },
+    "mahName": {
+      "label": "MAH Name",
+      "placeholder": "Enter the MAH Name"
+    },
+    "legalEntityName": {
+      "label": "Legal Entity Name",
+      "placeholder": "Enter the Legal Entity Name"
+    },
+    "mahAddress": {
+      "label": "MAH Address",
+      "placeholder": "Enter the MAH Address"
+    }
+  },
+  "audit": {
+    "title": "Audit Logs",
+    "description": "Review the history of user actions within the system.",
+    "empty": "No audit logs available.",
+    "dowload": "Download CSV",
+
+    "userId": {
+      "label": "User ID"
+    },
+    "owner": {
+      "label": "Owner"
+    },
+    "userDID": {
+      "label": "User DID"
+    },
+    "createdAt": {
+      "label": "Created At"
+    },
+    "userGroup": {
+      "label": "User Group"
+    },
+    "model": {
+      "label": "Model"
+    },
+    "recordId": {
+      "label": "Record ID"
+    },
+    "action": {
+      "label": "Action"
+    },
+    "transaction": {
+      "label": "Transaction"
+    },
+    "diffs": {
+      "title": "Change Summary",
+      "label": "Changes",
+      "button": {
+        "download": "Download JSON",
+        "previousVersion": "Download Previous Version"
+      }
+    },
+    "view_diffs": "<a>View</a>"
+  },
+  "account": {
+    "title": "Account Information",
+    "description": "Wallet and Identity Configuration."
+  },
+  "tasks": {
+    "title": "Tasks",
+    "description": "Manage and track your tasks.",
+    "empty": "No tasks available.",
+    "create": "Create Task",
+    "listening": "Listening for new tasks",
+    "history": "Tasks history...",
+    "atomicity": {
+      "label": "Atomicity",
+      "placeholder": "Enter the task atomicity"
+    },
+    "id": {
+      "label": "ID"
+    },
+    "name": {
+      "label": "Name",
+      "placeholder": "Enter the task name"
+    },
+    "classification": {
+      "label": "Classification"
+    },
+    "createdAt": {
+      "label": "Created At"
+    },
+    "maxAttempts": {
+      "label": "Max Attempts"
+    },
+    "status": {
+      "label": "Status",
+      "placeholder": "Select the task status",
+      "options": {
+        "pending": "Pending",
+        "scheduled": "Scheduled",
+        "running": "Running",
+        "failed": "Failed",
+        "succeeded": "Succeeded",
+        "canceled": "Canceled",
+        "waiting_retry": "Waiting Retry"
+      }
+    },
+    "attempt": {
+      "label": "Attempt Status",
+      "placeholder": "Type number of attempts"
+    },
+    "maxAttempt": {
+      "label": "Max Attempts",
+      "placeholder": "Type max number of attempts"
+    },
+    "scheduledTo": {
+      "label": "Scheduled To",
+      "placeholder": "Type the scheduled date"
+    }
+  },
+  "crud": {
+    "createdBy": {
+      "label": "Created By"
+    },
+    "createdAt": {
+      "label": "Created At"
+    },
+    "updatedBy": {
+      "label": "Updated By"
+    },
+    "updatedAt": {
+      "label": "Updated At"
+    },
+    "version": {
+      "label": "Version"
+    }
+  },
+
+  "admin": {
+    "error": {
+      "enrollToken": "Token provided is invalid. Please provide a valid token to access the enrollment page."
+    },
+
+    "enroll": {
+      "title": "Enroll Organization",
+      "subtitle": "Set up your organization and module access.",
+      "modules": {
+        "label": "Modules",
+        "options": {
+          "epi": "ePI Module"
+        }
+      },
+      "success": {
+        "title": "Enrollment Successful",
+        "message": "Your organization has been successfully enrolled."
+      },
+      "account": {
+        "endpoint": {
+          "label": "Endpoint",
+          "placeholder": "Enter the endpoint URL"
+        },
+        "backendEndpoint": {
+          "label": "Backend Endpoint",
+          "placeholder": "Enter the backend endpoint URL"
+        }
+      },
+      "features": {
+        "epi": {
+          "label": "ePI Features",
+          "options": {
+            "recall": "Recall Management",
+            "expiry": "Expiry Management"
+          }
+        }
+      },
+      "epiAdmin": {
+        "label": "ePI Admin"
+      },
+      "epiWriter": {
+        "label": "ePI Writer"
+      },
+      "epiReader": {
+        "label": "ePI Reader"
+      },
+      "keyCloack": {
+        "roleName": {
+          "label": "Role Name",
+          "placeholder": "Enter the role name"
+        },
+        "claimValue": {
+          "label": "Claim Value",
+          "placeholder": "Enter the claim value"
+        }
+      },
+      "classification": {
+        "label": "Classification",
+        "options": {
+          "mah": "MAH"
+        }
+      },
+      "onPrem": {
+        "label": "Is Infrastructure On Premises?"
+      }
+    },
+    "accounts": {
+      "title": "Accounts",
+      "description": "Manage user organization accounts with access to the system.",
+      "empty": "No user accounts found.",
+      "create": "Create",
+      "id": {
+        "label": "ID"
+      },
+      "deployed": {
+        "label": "Deployed",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        },
+        "confirm": {
+          "title": "Attention",
+          "message": "Deployment {0} organization. This action cannot be reversed."
+        },
+        "error": {
+          "title": "Attention",
+          "message": "Organization {0} already deployed."
+        }
+      },
+      "legalName": {
+        "label": "Legal Name",
+        "placeholder": "Enter the organization legal name"
+      },
+      "token": {
+        "label": "Token"
+      },
+      "orgName": {
+        "label": "Organization Name",
+        "placeholder": "Enter the organization name"
+      },
+      "mspid": {
+        "label": "MSP ID"
+      },
+      "mspId": {
+        "label": "MSP ID"
+      },
+      "onPrem": {
+        "label": "OnPrem",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      },
+      "claimed": {
+        "label": "Claimed",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      },
+      "endpoint": {
+        "label": "Endpoint",
+        "placeholder": "Enter the endpoint URL"
+      },
+      "backendEndpoint": {
+        "label": "Backend Endpoint",
+        "placeholder": "Enter the backend endpoint URL"
+      },
+      "createdAt": {
+        "label": "Created At"
+      },
+      "actions": {
+        "label": "Actions"
+      }
+    },
+    "token": {
+      "title": "Enter your PLA provided token to enroll your organization",
+      "mspid": {
+        "label": "MSP ID",
+        "placeholder": "Enter the MSP ID"
+      },
+      "classification": {
+        "label": "Classification"
+      },
+      "active": {
+        "label": "Active",
+        "modal": {
+          "title": "Attention",
+          "message": "This action will activate orgazination token"
+        },
+        "options": {
+          "yes": "Yes",
+          "no": "No",
+          "claimed": "The token has already been claimed and cannot be changed."
+        }
+      },
+      "id": {
+        "label": "Token",
+        "placeholder": "Enter the PLA Token"
+      },
+      "legalName": {
+        "label": "Legal Name",
+        "placeholder": "Enter the legal name"
+      },
+      "orgName": {
+        "label": "Organization Name"
+      },
+      "mspId": {
+        "label": "MSP ID",
+        "placeholder": "Enter the MSP ID"
+      },
+      "claimed": {
+        "label": "Claimed",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      },
+      "account": {
+        "endpoint": {
+          "label": "Endpoint",
+          "placeholder": "Enter the endpoint URL"
+        },
+        "backendEndpoint": {
+          "label": "Backend Endpoint",
+          "placeholder": "Enter the backend endpoint URL"
+        }
+      },
+      "createdAt": {
+        "label": "Created At"
+      },
+      "expiredAt": {
+        "label": "Expired At"
+      }
+    },
+
+    "enrollments": {
+      "title": "Enrollments",
+      "description": "Manage and review enrollment records for users and organizations.",
+      "empty": "No enrollment records found.",
+      "create": "Create",
+      "active": {
+        "label": "Active",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      },
+      "claimed": {
+        "label": "Claimed",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      },
+      "mspid": {
+        "label": "MSP ID"
+      },
+      "classification": {
+        "label": "Classification"
+      },
+
+      "enrollmentDate": {
+        "label": "Enrollment Date"
+      },
+      "createdAt": {
+        "label": "Created At"
+      },
+      "expiredAt": {
+        "label": "Expired At"
+      },
+      "actions": {
+        "label": "Actions"
+      }
+    }
+  }
+}

@@ -1,0 +1,103 @@
+networks:
+  auth-network:
+    name: auth-network
+  elk-network:
+    name: elk-network
+
+services:
+  traefik:
+    image: traefik:3.6.2
+    container_name: traefik
+    command:
+      # Set the log level (DEBUG, INFO, WARN, ERROR)
+      - '--log.level=DEBUG'
+      - '--api.insecure=true'
+      - '--metrics.prometheus=true'
+      - '--accesslog=true'
+      - '--accesslog.format=common'
+      # Enable the built-in API and web-based dashboard
+      - '--api.dashboard=true'
+      # Define the primary HTTP entry point on port 80
+      - '--entrypoints.web.address=:80'
+      # Define the secure (HTTPS) entry point on port 443
+      - '--entrypoints.websecure.address=:443'
+      # HTTP -> HTTPS redirect at entrypoint level
+      - '--entrypoints.web.http.redirections.entrypoint.to=websecure'
+      - '--entrypoints.web.http.redirections.entrypoint.scheme=https'
+      # Enable the Docker provider to detect containers and their labels
+      - '--providers.docker=true'
+      # Point Traefik to the Docker socket
+      - '--providers.docker.endpoint=unix:///var/run/docker.sock'
+      # Prevent automatic exposure of all containers; only expose containers
+      # with "traefik.enable=true"
+      - '--providers.docker.exposedbydefault=false'
+      # Use ACME (Let's Encrypt) to generate/renew certificates via TLS challenge
+      #- "--certificatesresolvers.letsencrypt.acme.tlschallenge=true"
+      # The email address used by Let's Encrypt for renewal notices
+      #- "--certificatesresolvers.letsencrypt.acme.email=${TRAEFIK_ACME_EMAIL}"
+      # The file where ACME certificates are stored inside the container
+      #- "--certificatesresolvers.letsencrypt.acme.storage=/etc/traefik/acme/acme.json"
+      # Disable sending anonymous usage data to the Traefik maintainers
+      - '--global.sendanonymoususage=false'
+      # if you omit this you will get the "Internal Server Error" due to
+      # the self-signed certificate
+      - '--serverstransport.insecureskipverify=true'
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    networks:
+      - auth-network
+      - elk-network
+    ports:
+      - '80:80'
+      - '443:443'
+    env_file:
+      - ../.env
+      - ../.env.secret
+      - ../.env.docker
+      - ../.env.sso
+    labels:
+      - 'pla_mah_index_name=${ORG_NAME:-ptp.internal}'
+      # Filebeat logs (Traefik module)
+      - 'co.elastic.logs/enabled=true'
+      - 'co.elastic.logs/module=traefik'
+      - 'co.elastic.logs/fileset=access'
+      # Enable Traefik for this container
+      - 'traefik.enable=true'
+      # A router to expose the Traefik dashboard
+      - 'traefik.http.routers.dashboard.rule=Host(`${TRAEFIK_HOSTNAME}`)'
+      - 'traefik.http.routers.dashboard.entrypoints=websecure'
+      - 'traefik.http.routers.dashboard.tls=true'
+      #- "traefik.http.routers.dashboard.tls.certresolver=letsencrypt"
+      - 'traefik.http.routers.dashboard.service=api@internal'
+      # Basic Authentication for the Traefik dashboard
+      - 'traefik.http.routers.dashboard.middlewares=authtraefik'
+      - 'traefik.http.middlewares.authtraefik.basicauth.users=${TRAEFIK_BASIC_AUTH}'
+      # Specify the internal server port to the dashboard service
+      - 'traefik.http.services.dashboard.loadbalancer.server.port=8080'
+      # Pass the original Host header to the backend
+      - 'traefik.http.services.dashboard.loadbalancer.passhostheader=true'
+
+      #  To use these to have a local frontend uncomment this
+      # PDM
+      - 'traefik.http.routers.ew-frontend-pdm.rule=Host(`ew-frontend-pdm.${ORG_DOMAIN}`)'
+      - 'traefik.http.routers.ew-frontend-pdm.entrypoints=websecure'
+      - 'traefik.http.routers.ew-frontend-pdm.tls=true'
+      - 'traefik.http.routers.ew-frontend-pdm.service=ew-frontend-pdm'
+      - 'traefik.http.services.ew-frontend-pdm.loadbalancer.server.url=http://host.docker.internal:8130'
+
+      # PTP
+      - 'traefik.http.routers.ew-frontend.rule=Host(`ew-frontend.ptp.internal`)'
+      - 'traefik.http.routers.ew-frontend.entrypoints=websecure'
+      - 'traefik.http.routers.ew-frontend.tls=true'
+      - 'traefik.http.routers.ew-frontend.service=ew-frontend'
+      - 'traefik.http.services.ew-frontend.loadbalancer.server.url=http://host.docker.internal:8131'
+
+      # LWA
+      - 'traefik.http.routers.lwa.rule=Host(`lwa.ptp.internal`)'
+      - 'traefik.http.routers.lwa.entrypoints=websecure'
+      - 'traefik.http.routers.lwa.tls=true'
+      - 'traefik.http.routers.lwa.service=lwa'
+      - 'traefik.http.services.lwa.loadbalancer.server.url=http://host.docker.internal:8150'
+    extra_hosts:
+      - 'host.docker.internal:host-gateway'
+    restart: unless-stopped

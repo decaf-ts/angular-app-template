@@ -1,0 +1,28 @@
+<ion-content [fullscreen]="true">
+  <main>
+    <app-container [hasSideMenu]="false">
+      <ngx-decaf-card type="shadow">
+        <div class="dcf-flex">
+          <div class="dcf-icon">
+            <ngx-decaf-icon
+              [name]="icon"
+              color="danger"
+            />
+          </div>
+          <h1 class="dcf-page-title dcf-flex dcf-flex-middle">
+            {{ locale + '.title' | translate }}
+          </h1>
+        </div>
+        <p class="dcf-message">{{message}}</p>
+        <div class="dcf-margin-top">
+          <ion-button
+            (click)="handleBack()"
+            color="primary"
+          >
+            {{ locale + '.back' | translate }}
+          </ion-button>
+        </div>
+      </ngx-decaf-card>
+    </app-container>
+  </main>
+</ion-content>

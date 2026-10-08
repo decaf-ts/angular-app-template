@@ -1,0 +1,8 @@
+{
+  "name": "@deca/angular-app-template",
+  "type": "angular-standalone",
+  "root": ".",
+  "integrations": {
+    "capacitor": {}
+  }
+}

@@ -1,0 +1,12 @@
+./**/*
+!./*.json
+!src/*
+!tests/*
+!workdocs/*
+!./.npmrc
+!gulpfile.js
+!jest.config.ts
+!webpack.config.js
+!esbuild.config.js
+!esbuild.config.mjs
+!./bin/postinstall.mjs

@@ -1,0 +1,195 @@
+{
+  // .vscode/launch.json
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Chrome Debug",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:8130"
+    },
+    {
+      "name": "PDM - Chrome Debug",
+      "type": "chrome",
+      "request": "launch",
+      "url": "https://ew-frontend-pdm.ptp.internal/",
+      "runtimeArgs": [
+        "--remote-debugging-port=29222",
+        "--ignore-certificate-errors",
+        "--ignore-urlfetcher-cert-requests",
+        "--allow-insecure-localhost"
+      ]
+    },
+    {
+      "name": "PTP - Chrome Debug",
+      "type": "chrome",
+      "request": "launch",
+      "url": "https://ew-frontend.ptp.internal/",
+      "runtimeArgs": [
+        "--ignore-certificate-errors",
+        "--ignore-urlfetcher-cert-requests",
+        "--allow-insecure-localhost"
+      ]
+    },
+    {
+      "name": "ng serve",
+      "type": "chrome",
+      "request": "launch",
+      "preLaunchTask": "npm: start",
+      "url": "http://localhost:4200/"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Playwright: Run current file",
+      "program": "${workspaceFolder}/node_modules/.bin/playwright",
+      "args": ["test", "${relativeFile}", "--config=./playwright.config.ts", "--ui"],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen"
+    },
+
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Jest run current file",
+      "program": "${workspaceFolder}/node_modules/jest/bin/jest",
+      "args": [
+        "--runTestsByPath",
+        "${relativeFile}",
+        "--runInBand",
+        "--passWithNoTests",
+        "--no-cache"
+      ],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "windows": {
+        "program": "${workspaceFolder}/node_modules/jest/bin/jest"
+      }
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Jest watch current file",
+      "program": "${workspaceFolder}/node_modules/jest/bin/jest",
+      "args": ["${relativeFile}", "--verbose", "-i", "--no-cache", "--watchAll"],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "windows": {
+        "program": "${workspaceFolder}/node_modules/jest/bin/jest"
+      }
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Run All Jest Tests with Coverage",
+      "program": "${workspaceFolder}/node_modules/jest/bin/jest.js",
+      "args": ["--testPathPatterns=/tests", "--detectOpenHandles"],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "env": {}
+    },
+    {
+      "name": "build:prod",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "build:prod"],
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "build",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "build"],
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "coverage",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "coverage"],
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "docs",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "docs"],
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "drawings",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "drawings"],
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "flash-forward",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "flash-forward"],
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Integration Tests",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["jest", "--testPathPatterns=/tests/integration", "--detectOpenHandles"],
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Lint Fix",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "lint-fix"],
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Test Circular",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "test:circular"],
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "UML Generation",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "uml"],
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Unit Tests",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["jest", "--testPathPatterns=/tests/unit", "--detectOpenHandles"],
+      "env": {
+        "NODE_ENV": "test"
+      },
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "update-scripts",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "update-scripts"],
+      "env": {
+        "NODE_ENV": "development"
+      },
+      "console": "integratedTerminal"
+    }
+  ]
+}

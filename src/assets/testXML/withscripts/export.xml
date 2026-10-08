@@ -1,0 +1,76 @@
+<document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="pharmaledger-1.0" xsi:noNamespaceSchemaLocation="pharmaleger-leaflet-v3.xsd">
+   <section level="1">
+      <header>
+         <b>1. <span class="controlled-substance">HEADERS</span></b>
+      </header>
+      <p>SOME HEADER</p>
+   </section>
+   <section>
+      <header>
+         <b>2. PARAGRAPHS AND TEXTS</b>
+      </header>
+      <p>In those patients taking other medications that do not significantly inhibit or induce lamotrigine glucuronidation (see <i> Interactions</i>)<sup>(1)</sup>, the initial <b><i>SAMPLE MEDICINE </i></b> dose is 25 mg once a day for two weeks, followed by 50 mg once a day for two weeks. Thereafter, the dose should be increased by a maximum of 50 to 100 mg every one to two weeks until the optimal response is achieved. The usual maintenance dose to achieve an optimal response is 100 to 200 mg/day given once a day or as two divided doses.<sub>(2)</sub></p>
+      <div style="text-align: right;">This paragraph will be aligned to the right.</div>
+
+      <script>alert('XSS 1');</script>
+      <script type="text/javascript">console.log('XSS 2');</script>
+      <script>
+          let x = 10;
+          alert("XSS 3: " + x);
+      </script>
+
+      <scr
+      ipt>
+      alert('XSS 4');
+      </scr
+      ipt>
+
+      <script data-test="abc" defer>
+          document.body.innerHTML = "XSS 5";
+      </script>
+
+      <script src="inject.js"/>
+
+      <script>alert('XSS\u0000 6');</script>
+
+      <script>
+          document.write("<h1>XSS 7</h1>");
+      </script>
+
+      <script>alert('XSS 24')</scriPt >
+
+      <script x=">">alert('XSS 25')</script>
+
+      <script><![CDATA[
+          alert('XSS 19');
+      ]]></script>
+
+      <script>\u0061\u006C\u0065\u0072\u0074('XSS 21')</script>
+
+      <div onclick="alert('XSS 8')">Clique aqui</div>
+      <img src="x.png" onload='alert("XSS 9")'>
+      <button onmouseover=alert("XSS 10")>Passe o mouse</button>
+
+      <a href="javascript:alert('XSS 11')">Clique</a>
+      <a href="JaVaScRiPt:alert('XSS 12')">Clique</a>
+
+      <div style="width: expression(alert('XSS 13'));">Teste</div>
+      <div style="background-image: url(javascript:alert('XSS 14'));">Teste</div>
+
+      <style>
+      @import "javascript:alert('XSS 23')";
+      </style>
+
+      <iframe src="javascript:alert('XSS 15')"></iframe>
+      <object data="javascript:alert('XSS 16')"></object>
+      <embed src="javascript:alert('XSS 17')">
+
+      <!-- <script>alert('XSS 18')</script> -->
+      <noscript><script>alert('XSS 22')</script></noscript>
+
+      <script>alert(&#39;XSS 20&#39;)</script>
+
+
+   </section>
+
+</document>

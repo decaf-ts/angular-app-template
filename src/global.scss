@@ -1,0 +1,306 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/**
+ * Importing @decaf-ts/styles system styles
+ */
+
+/* You can import all files */
+// @use "@decaf-ts/styles/dist/main.css";
+
+// Ionic css and Styles are imported in the main.scss file, so we don't need to import them here
+@use "@decaf-ts/for-angular/assets/main.scss";
+@use "./theme/variables.scss";
+@use "@pharmaledgerassoc/ptp-xml/lib/assets/css/leaflet.css" as *;
+
+.dcf-has-action {
+  cursor: pointer !important;
+}
+
+ion-app {
+  --dcf-box-shadow-small: 0px 1px 3px rgba(0, 0, 0, 0.1), 0px 1px 2px -1px rgba(0, 0, 0, 0.1);
+  @media (min-width: 1200px) {
+    ion-menu {
+      --background: rgba(255, 255, 255, 0.05) !important;
+      background: rgba(255, 255, 255, 0.05) !important;
+      -webkit-backdrop-filter: blur(12px);
+
+      backdrop-filter: blur(12px);
+
+      &:not(.dcf-collapsed) {
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+
+        ion-content {
+          border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+      }
+
+      > section,
+      .dcf-menu-expand-button,
+      ion-content {
+        background: transparent !important;
+        --background: transparent !important;
+      }
+
+      > * {
+        background: transparent !important;
+      }
+
+      ion-list {
+        background: transparent !important;
+
+        ion-item {
+          --background: transparent !important;
+        }
+      }
+    }
+  }
+}
+
+// EW Figma customizations
+ion-router-outlet ion-content {
+  --background: var(--dcf-content-background);
+}
+
+ion-button:not([shape="round"]) {
+  --border-radius: var(--dcf-border-radius) !important;
+}
+
+// fix fieldset margin issue
+form .dcf-layout-container {
+  margin-top: 0.25rem;
+}
+//TODO: Provisory, remove on next for angular release
+
+.dcf-grid {
+  &:first-of-type .dcf-grid .dcf-first-column {
+    + div {
+      margin-top: -0.25rem !important;
+    }
+  }
+
+  ngx-decaf-crud-field .update.dcf-item-readonly {
+    margin-top: -0.575rem;
+
+    ion-label {
+      font-weight: bold;
+      ion-text,
+      span {
+        font-weight: normal;
+      }
+    }
+  }
+}
+
+main {
+  .dcf-page-title-container {
+    margin-bottom: 1rem !important;
+    margin-top: 0.5rem !important;
+    .dcf-page-title {
+      margin-bottom: 0px;
+      margin-top: 0px !important;
+    }
+    .dcf-page-subtitle {
+      margin-top: 0px;
+    }
+  }
+
+  .dcf-form-container {
+    background-color: var(--dcf-card-background) !important;
+    padding: var(--dcf-padding);
+    border-radius: var(--dcf-border-radius) !important;
+    box-shadow: var(--dcf-box-shadow-compact) !important;
+    border: 1px solid var(--dcf-color-gray-3) !important;
+  }
+
+  .dcf-filters-container {
+    margin: 0rem !important;
+    margin-bottom: 1rem !important;
+
+    &.dcf-border-top {
+      border-top: 1px solid var(--dcf-color-gray-3);
+      padding-top: 1rem;
+      margin-top: 1.5rem !important;
+    }
+
+    app-switcher {
+      position: relative;
+      top: -5px;
+    }
+  }
+
+  // customize actions inside list component
+  .dcf-grid-actions {
+    margin-top: -1rem !important;
+    margin-bottom: 1rem !important;
+    ion-select {
+      --background: var(--dcf-card-background) !important;
+      min-height: 40px;
+    }
+    .dcf-filter-component {
+      @media (max-width: 680px) {
+        > div:last-child {
+          padding-left: 0px !important;
+          margin-bottom: 0px !important;
+        }
+      }
+      > div:first-child {
+        padding-left: 0px !important;
+      }
+
+      > div:last-child {
+        padding-right: 0px !important;
+      }
+    }
+  }
+
+  @media (max-width: 400px) {
+    .dcf-switcher-container {
+      min-width: 100%;
+      margin-bottom: 1rem !important;
+      + div {
+        width: 100%;
+
+        ion-button {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .dcf-list-container {
+    ion-list {
+      background: none !important;
+    }
+
+    .dcf-filter-component {
+      > div:first-child {
+        padding-left: 0px !important;
+      }
+      ion-select {
+        --background: var(--dcf-card-background) !important;
+      }
+    }
+
+    // ngx-decaf-empty-state .dcf-card {
+    //   border: 1px solid red !important;
+    //   padding: 0px !important;
+    //   margin: 0px;
+    //   margin-top: 1rem;
+    //   border-radius: var(--dcf-border-radius) !important;
+    //   box-shadow: var(--dcf-box-shadow) !important;
+    //   border: 1px solid var(--dcf-color-gray-3) !important;
+    // }
+  }
+}
+.dcf-page-title {
+  color: var(--dcf-color-gray-8) !important;
+  font-weight: 500 !important;
+  font-size: 1.5rem !important;
+  line-height: 2rem !important;
+}
+
+.dcf-page-subtitle {
+  color: var(--dcf-color-gray-6) !important;
+  font-weight: 400 !important;
+  font-size: 0.975rem !important;
+  line-height: 1.5rem !important;
+}
+
+.dcf-page-content {
+  padding: var(--dcf-padding-small) 0rem;
+  padding-bottom: 0rem;
+}
+
+ngx-decaf-list ngx-decaf-empty-state > * {
+  padding: 0px !important;
+  background: var(--dcf-card-background) !important;
+  margin: 0px !important;
+  border-radius: var(--dcf-border-radius) !important;
+  box-shadow: var(--dcf-box-shadow-small) !important;
+  border: 1px solid var(--dcf-color-gray-2) !important;
+}
+
+ion-modal {
+  &#dcf-datamatrix-modal {
+    ion-title {
+      height: 75px !important;
+      font-size: 1rem !important;
+      width: calc(100% + 25px) !important;
+      .dcf-datamatrix-preview-helper {
+        display: block;
+        font-size: 0.925rem !important;
+        color: var(--dcf-color-gray-5) !important;
+      }
+    }
+
+    ion-buttons {
+      position: relative !important;
+      top: -0.75rem !important;
+    }
+
+    .dcf-modal-content {
+      margin-top: 0.25rem !important;
+    }
+  }
+}
+
+.dcf-button-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+  text-decoration: none;
+  color: inherit;
+  &.locked {
+    span {
+      background: rgba(var(--dcf-color-primary-rgb), 0.5);
+      opacity: 0.5;
+    }
+  }
+  span {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 22px;
+    background: #ccc;
+    border-radius: 999px;
+    transition: background 0.25s ease;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: 16px;
+      height: 16px;
+      background: #fff;
+      border-radius: 50%;
+      transition: transform 0.25s ease;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  /* estado ativo — adicione .active no <a> ou no <span> */
+  &.dcf-active {
+    span {
+      background: var(--dcf-color-primary);
+      &::after {
+        transform: translateX(18px);
+      }
+    }
+  }
+}
+
+ion-loading.dcf-loading-component .loading-content:empty {
+  display: none;
+}

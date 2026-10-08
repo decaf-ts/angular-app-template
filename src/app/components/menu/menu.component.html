@@ -1,0 +1,79 @@
+@if (menu?.length) {
+  <ion-list
+    [class]="'dcf-menu-component'"
+    [class.dcf-collapsed]="collapsed"
+  >
+    @for (item of menu; track $index) {
+      <ion-menu-toggle auto-hide="false">
+        @if (item?.url === 'logout') {
+          <ion-item
+            [class.dcf-color]="item.color"
+            [button]="true"
+            [detail]="false"
+            (click)="logout($event)"
+            [attr.title]="item.label | translate"
+            lines="none"
+          >
+            @if (item.icon) {
+              <ngx-decaf-icon
+                [color]="item.color || ''"
+                [name]="
+                  item.icon.includes('.svg')
+                    ? 'assets/images/icons/' + item.icon
+                    : item.icon
+                "
+              />
+            } @else {
+              <ngx-decaf-icon
+                class="dcf-default-icon"
+                name="ti-chevron-right"
+                [color]="item.color || ''"
+                [hidden]="!collapsed"
+              />
+            }
+            <ion-label [class.dcf-hidden]="collapsed">
+              {{ item.label | translate }}
+            </ion-label>
+          </ion-item>
+        } @else {
+          <ion-item
+            [hidden]="item.hidden"
+            [class.dcf-separator]="!item.url"
+            [class.dcf-active-item]="
+              item?.activeWhen ? isMenuActive(item) : false
+            "
+            [class.dcf-color]="item.color"
+            [button]="true"
+            [detail]="false"
+            [routerDirection]="'forward'"
+            [routerLink]="item.url ? [item.url] : null"
+            lines="none"
+            [attr.title]="item.label | translate"
+            routerLinkActive="dcf-active"
+          >
+            @if (item.icon) {
+              <ngx-decaf-icon
+                [color]="item.color || ''"
+                [name]="
+                  item.icon.includes('.svg')
+                    ? 'assets/images/icons/' + item.icon
+                    : item.icon
+                "
+              />
+            } @else {
+              <ngx-decaf-icon
+                class="dcf-default-icon"
+                name="ti-chevron-right"
+                [color]="item.color || ''"
+                [hidden]="!collapsed"
+              />
+            }
+            <ion-label>
+              {{ item.label | translate }}
+            </ion-label>
+          </ion-item>
+        }
+      </ion-menu-toggle>
+    }
+  </ion-list>
+}

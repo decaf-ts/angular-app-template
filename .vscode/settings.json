@@ -1,0 +1,143 @@
+{
+  "cSpell.enabled": false,
+  "intelephense.files.exclude": [
+    "**/.git/**",
+    "**/.svn/**",
+    "**/.hg/**",
+    "**/CVS/**",
+    "**/.DS_Store/**",
+    "**/node_modules/**",
+    "**/bower_components/**",
+    "**/vendor/**/{Tests,tests}/**",
+    "**/.history/**",
+    "**/vendor/**/vendor/**",
+    "**/.playwright-cli/**",
+    "**/.playwright-mcp/**"
+  ],
+
+  "files.watcherExclude": {
+    "**/node_modules/**": true,
+    "**/vendor/**": true,
+    "**/.git/**": true,
+    "**/dist/**": true,
+    "**/lib/**": true,
+    "**/machinax/**": true,
+    "**/.playwright-cli/**": true,
+    "**/.playwright-mcp/**": true
+  },
+
+  "editor.renderWhitespace": "none",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": false,
+  "prettier.htmlWhitespaceSensitivity": "ignore",
+  "prettier.proseWrap": "preserve",
+  "prettier.bracketSameLine": false,
+  "prettier.requireConfig": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit",
+    "source.fixAll.eslint": "explicit"
+  },
+
+  "jest.jestCommandLine": "npx jest --runInBand --passWithNoTests",
+  "jest.runMode": "on-demand",
+  "jest.coverageColors": {
+    "uncovered": "rgba(255,99,71, 0.6)",
+    "partially-covered": "rgba(255,215,0, 0.6)"
+  },
+  "jest.outputConfig": {
+    "revealOn": "run",
+    "revealWithFocus": "none"
+  },
+  "testing.automaticallyOpenTestResults": "neverOpen",
+  "jest.coverageFormatter": "GutterFormatter",
+
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": false,
+    "editor.codeActionsOnSave": {
+      "source.fixAll": "explicit",
+      "source.fixAll.eslint": "explicit"
+    }
+  },
+
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "explicit", // remove unused imports for angular
+      "source.fixAll": "explicit",
+      "source.fixAll.eslint": "explicit",
+      "source.fixAll.stylelint": "always"
+    }
+  },
+
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": false,
+    "editor.codeActionsOnSave": {
+      "source.fixAll": "explicit",
+      "source.fixAll.eslint": "explicit",
+      "source.fixAll.stylelint": "always"
+    }
+  },
+
+  "[scss]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll": "explicit",
+      "source.fixAll.eslint": "explicit",
+      "source.fixAll.stylelint": "always"
+    }
+  },
+
+  "[sass]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll": "explicit",
+      "source.fixAll.eslint": "explicit",
+      "source.fixAll.stylelint": "always"
+    }
+  },
+
+  "[css]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll": "explicit",
+      "source.fixAll.eslint": "explicit",
+      "source.fixAll.stylelint": "always"
+    }
+  },
+
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.formatOnSaveMode": "modifications",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll": "explicit",
+      "source.fixAll.prettier": "explicit",
+      "source.fixAll.eslint": "explicit"
+    }
+  },
+
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "scss",
+    "sass",
+    "css",
+    "html"
+  ]
+}

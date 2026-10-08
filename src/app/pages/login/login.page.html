@@ -1,0 +1,39 @@
+<ion-content [fullscreen]="true">
+  <main>
+    <div
+      [id]="uid"
+      class="cmx-splash-screen-component"
+      #component
+    >
+      <div class="cmx-splash-content">
+        @if(!loggedOut) {
+        <div class="loader"></div>
+        } @if (image) {
+        <div class="logo">
+          <div
+            [src]="image"
+            alt="{{ AppName }}"
+            [ngx-decaf-svg]="image"
+          ></div>
+        </div>
+        }
+        <!-- <div class="loader"></div> -->
+        <h1 class="title">
+          @if (!loggedOut) { @if(initialized) { Autenticating with SSO
+          provider... } @else { @if (validating) {
+          {{ 'login.validating' | translate }}
+          } @else { Click in button bellow to start authentication
+          process
+          <div class="dcf-margin-top dcf-margin-bottom">
+            <ion-button (click)="authenticate()">Login</ion-button>
+          </div>
+          } } } @else { You have been logged out successfully
+          <div class="dcf-margin-top dcf-margin-bottom">
+            <ion-button (click)="authenticate()">Login</ion-button>
+          </div>
+          }
+        </h1>
+      </div>
+    </div>
+  </main>
+</ion-content>

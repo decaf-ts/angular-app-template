@@ -1,0 +1,200 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "projects": {
+    "app": {
+      "projectType": "application",
+      "schematics": {
+        "@ionic/angular-toolkit:page": {
+          "styleext": "scss",
+          "standalone": true
+        }
+      },
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-builders/custom-esbuild:application",
+          "options": {
+            "plugins": ["./esbuild.config.mjs"],
+            "allowedCommonJsDependencies": [
+              "json-stringify-deterministic",
+              "cronstrue",
+              "reflect-metadata",
+              "cron-parser"
+            ],
+            "outputPath": {
+              "base": "www",
+              "browser": ""
+            },
+            "index": "src/index.html",
+            "polyfills": ["src/polyfills.ts"],
+            "tsConfig": "tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "stylePreprocessorOptions": {
+              "includePaths": ["node_modules"]
+            },
+            "serviceWorker": "ngsw-config.json",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "src/assets",
+                "output": "assets"
+              },
+              {
+                "glob": "tabler-sprite.svg",
+                "input": "node_modules/@decaf-ts/for-angular/assets",
+                "output": "assets"
+              }
+            ],
+            "styles": ["src/global.scss", "src/theme/variables.scss"],
+            "scripts": [],
+            "browser": "src/main.ts"
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "4mb",
+                  "maximumError": "10mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "8kb",
+                  "maximumError": "16kb"
+                }
+              ],
+              "outputHashing": "all",
+              "optimization": {
+                "scripts": true,
+                "styles": true,
+                "fonts": true
+              }
+            },
+
+            "development": {
+              "optimization": {
+                "scripts": false,
+                "styles": true,
+                "fonts": false
+              },
+              "extractLicenses": false,
+              "sourceMap": {
+                "scripts": true,
+                "styles": true,
+                "vendor": true,
+                "sourcesContent": true
+              },
+              "statsJson": true,
+              "namedChunks": true,
+              "outputHashing": "media"
+            },
+            "ci": {
+              "progress": false
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-builders/custom-esbuild:dev-server",
+          "options": {
+            "prebundle": {
+              "exclude": [
+                "@decaf-ts/core",
+                "@decaf-ts/db-decorators",
+                "@decaf-ts/decoration",
+                "@decaf-ts/decorator-validation",
+                "@decaf-ts/for-angular",
+                "@decaf-ts/for-fabric",
+                "@decaf-ts/for-http",
+                "@decaf-ts/injectable-decorators",
+                "@decaf-ts/logging",
+                "@decaf-ts/transactional-decorators",
+                "@decaf-ts/ui-decorators",
+                "@pharmaledgerassoc/ptp-toolkit",
+                "@pharmaledgerassoc/ptp-xml"
+              ]
+            }
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "app:build:production"
+            },
+            "development": {
+              "buildTarget": "app:build:development"
+            },
+            "ci": {}
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular/build:extract-i18n",
+          "options": {
+            "buildTarget": "app:build"
+          }
+        },
+        "test": {
+          "builder": "@angular/build:karma",
+          "options": {
+            "main": "src/test.ts",
+            "polyfills": ["src/polyfills.ts"],
+            "tsConfig": "tsconfig.spec.json",
+            "karmaConfig": "karma.conf.js",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "src/assets",
+                "output": "assets"
+              },
+              {
+                "glob": "tabler-sprite.svg",
+                "input": "node_modules/@decaf-ts/for-angular/assets",
+                "output": "assets"
+              }
+            ],
+            "styles": ["src/global.scss", "src/theme/variables.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "ci": {
+              "progress": false,
+              "watch": false
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": ["src/**/*.ts", "src/**/*.html"]
+          }
+        }
+      }
+    }
+  },
+
+  "cli": {
+    "schematicCollections": ["@ionic/angular-toolkit"],
+    "analytics": false
+  },
+  "schematics": {
+    "@ionic/angular-toolkit:component": {
+      "styleext": "scss",
+      "standalone": true,
+      "path": "src/app/components"
+    },
+    "@ionic/angular-toolkit:page": {
+      "styleext": "scss",
+      "standalone": true,
+      "path": "src/app/pages"
+    },
+    "@angular-eslint/schematics:application": {
+      "setParserOptionsProject": false
+    },
+    "@angular-eslint/schematics:library": {
+      "setParserOptionsProject": false
+    }
+  }
+}

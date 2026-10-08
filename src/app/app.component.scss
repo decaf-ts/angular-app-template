@@ -1,0 +1,275 @@
+$active-color: white;
+$transition: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+ion-split-pane {
+  --side-max-width: 240px;
+  ion-menu {
+    border-right: 1px solid var(--dcf-color-gray-2);
+    transition:
+      width $transition,
+      max-width $transition,
+      min-width $transition;
+  }
+  @media (max-width: 1199px) {
+    .dcf-default-icon {
+      display: none !important;
+    }
+  }
+  @media (min-width: 1200px) {
+    &.dcf-collapsable:not(.dcf-collapsed) {
+      ion-menu {
+        position: fixed;
+        inset: 0 auto 0 0;
+        height: 100vh;
+        z-index: 1001;
+      }
+    }
+
+    &.dcf-fixed {
+      .dcf-menu-expand-button {
+        ngx-decaf-icon {
+          // background: white;
+          transition: transform 0.3s ease;
+          transform: rotate(-90deg) !important;
+          top: -5px !important;
+          position: relative;
+        }
+      }
+    }
+    &.dcf-collapsed {
+      --side-min-width: 75px;
+      --side-max-width: 75px !important;
+
+      .dcf-logo-container {
+        transition: all 0.3s ease;
+        padding-left: unset !important;
+      }
+
+      // ion-list {
+      //   padding-top: 1rem !important;
+      //   padding-left: 0.24rem !important;
+      //   width: max-content;
+      //   transition: all 0.2s ease;
+      // }
+
+      ion-label {
+        display: none !important;
+      }
+
+      .dcf-separator {
+        display: none;
+      }
+
+      .dcf-menu-expand-button {
+        justify-content: center;
+        padding: 0.5rem !important;
+        padding-bottom: 1.5rem !important;
+        transform: scale(0.675);
+
+        .text {
+          opacity: 0;
+          position: absolute;
+          transform: translateX(-101%);
+          transition:
+            opacity 0.1s cubic-bezier(0.25, 0.8, 0.25, 1),
+            transform 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        ngx-decaf-icon {
+          // background: white;
+          transition: transform 0.3s ease;
+          transform: rotate(180deg) !important;
+        }
+      }
+    }
+  }
+}
+
+.dcf-animation-slide-left-small {
+  animation-name: dcf-slide-left-small;
+  animation-delay: 0.1 !important;
+}
+
+// ion-router-outlet {
+//   &.dfc-animation {
+//     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+//   }
+// }
+
+.dcf-menu-expand-button {
+  margin: 0px !important;
+  display: flex;
+  padding: 1.5rem 1.75rem !important;
+  cursor: pointer;
+  color: var(--dcf-color-text);
+  ngx-decaf-icon {
+    // background: white;
+    transition: transform 0.3s ease;
+    transform: translateY(-3px);
+    margin-left: 2px !important;
+    margin-right: var(--dcf-margin-xsmall);
+  }
+  .text {
+    transform: translateX(0);
+    transition:
+      opacity 0.8s cubic-bezier(0.25, 0.8, 0.25, 1),
+      transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    opacity: 1;
+  }
+
+  @media (max-width: 1199px) {
+    display: none !important;
+  }
+}
+
+ion-menu {
+  ion-item {
+    ngx-decaf-icon {
+      transform: translateY(0px) !important;
+    }
+  }
+  &.dcf-palette-dark {
+    // border-right: 1px solid var(--dcf-card-background);
+    & {
+      border-right: 1px solid var(--dcf-card-background);
+    }
+    @media (min-width: 1200px) {
+      &.dcf-collapsable,
+      &.dcf-fixed {
+        ion-content {
+          border-top: 1px solid var(--dcf-background-color) !important;
+        }
+      }
+    }
+    ::ng-deep {
+      .ti,
+      ion-icon,
+      aeon-icon {
+        color: var(--ion-color-gray-4) !important;
+      }
+    }
+
+    > *,
+    ion-content {
+      background: var(--dcf-item-background, var(--dcf-background-color, #fff));
+    }
+  }
+  &.dcf-collapsable {
+    // fix menu
+    @media (min-width: 1200px) {
+      position: fixed;
+      inset: 0 auto 0 0;
+      height: 100vh;
+      z-index: 5;
+    }
+
+    ion-item {
+      &:first-of-type:not(.dcf-separator:not(:first-of-type)) {
+        margin-top: 0.5rem;
+      }
+    }
+  }
+
+  ion-content {
+    --background: var(--ion-item-background, var(--ion-background-color, #fff));
+  }
+}
+
+.dcf-collapsable,
+.dcf-fixed {
+  @media (min-width: 1200px) {
+    ion-content {
+      border-top: 1px solid var(--dcf-color-gray-2);
+    }
+  }
+}
+
+.dcf-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 45px;
+  height: 45px;
+  &::before {
+    transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+}
+
+.dcf-logo-text {
+  transform: translateX(-101%);
+  min-width: max-content;
+  opacity: 0;
+}
+.dcf-logo-container {
+  transition: all 0.3s ease;
+  padding-top: 0.75rem !important;
+  padding-left: 1.5rem;
+  height: 64px !important;
+
+  .dcf-logo-collapsed {
+    text-align: center;
+
+    .dcf-logo {
+      width: 75px !important;
+      transform: scale(125%) !important;
+      transition: transform 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+  }
+
+  .dcf-logo-full {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+
+    .dcf-logo-text {
+      opacity: 1 !important;
+      transform: translateX(0%);
+      transition:
+        opacity 0.8s cubic-bezier(0.25, 0.8, 0.25, 1),
+        transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    .dcf-logo {
+      padding: var(--dcf-padding-xsmall);
+      box-sizing: border-box;
+      border-radius: var(--dcf-border-radius-large);
+      box-shadow: var(--dcf-box-shadow);
+      position: relative;
+      overflow: hidden;
+      // background: transparent;
+      transform: scale(100%) !important;
+      transition: transform 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+      &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: linear-gradient(
+          180deg,
+          var(--dcf-color-primary) 0%,
+          var(--dcf-color-primary-tint) 100%
+        );
+      }
+
+      > * {
+        position: relative;
+        z-index: 1;
+      }
+    }
+
+    .dcf-logo-title {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 1.2;
+      opacity: 1;
+    }
+
+    .dcf-logo-subtitle {
+      margin: 0;
+      font-size: 0.875rem;
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--dcf-color-gray-5);
+      opacity: 1;
+    }
+  }
+}

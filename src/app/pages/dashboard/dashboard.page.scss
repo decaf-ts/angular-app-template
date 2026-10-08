@@ -1,0 +1,73 @@
+.dcf-card-item {
+  &:hover {
+    cursor: pointer;
+    border-color: var(--dcf-color-primary);
+
+    ngx-decaf-icon ::ng-deep ti,
+    ion-img {
+      transform: scale(1.1);
+      transition: all 0.1s ease-in-out;
+    }
+  }
+
+  ngx-decaf-icon ::ng-deep {
+    .ti {
+      height: 40px;
+      position: relative;
+      scale: 0.8;
+      top: 6px !important;
+    }
+  }
+}
+
+main {
+  height: 100%;
+  .kibana-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    > div {
+      height: 100%;
+    }
+    iframe {
+      width: 100%;
+      min-height: 100%;
+      // min-height: calc(100% + 50px);
+      // top: -50px;
+      border: none;
+      flex-grow: 1;
+      position: relative;
+    }
+  }
+
+  .dcf-loading-container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    ion-spinner {
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  // .kibana-container {
+  //   height: 100% !important;
+  //   position: relative;
+  //   display: flex;
+  //   flex-direction: column;
+  //   flex-grow: 1;
+  //   > div {
+  //     height: 100%;
+  //   }
+  //   iframe {
+  //     width: 100%;
+  //     height: calc(100% - 150px);
+  //     &.fullscreen {
+  //       height: 100% !important;
+  //     }
+  //   }
+  // }
+}

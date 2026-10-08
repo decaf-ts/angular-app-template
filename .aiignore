@@ -1,0 +1,126 @@
+# ============================================================
+# Preserve managed AI project state - MUST come before any broad ignore
+# ============================================================
+!workdocs/ai/
+!workdocs/ai/**
+
+# ============================================================
+# Secrets and Env files
+# ============================================================
+
+**/.env
+**/.env.*
+**/*.key
+**/*.pem
+**/*.cert
+**/*.crt
+**/*.p12
+**/*.pfx
+**/id_rsa*
+**/id_ed25519*
+**/*.ppk
+
+# Tokens
+**/.npmtoken
+**/.token
+**/.npmrc
+**/auth.json
+**/credentials.json
+**/service-account*.json
+**/.htpasswd
+**/.netrc
+
+# Cloud and deploy
+**/.aws/
+**/.gcloud/
+**/.kube/
+**/kubeconfig*
+
+# ============================================================
+# Database
+# ============================================================
+
+**/*.sql
+**/*.dump
+**/*.sqlite
+**/*.sqlite3
+**/*.db
+!**/migrations/**/*.sql
+!**/seeds/**/*.sql
+
+# ============================================================
+# Node
+# ============================================================
+
+**/node_modules
+**/node_modules/
+**/www/
+
+# Angular
+**/.angular/
+
+**/*.keystore
+**/*.jks
+
+# ============================================================
+# Docker
+# ============================================================
+
+docker-compose.override.yml
+
+# ============================================================
+# Logs e debug
+# ============================================================
+
+**/*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# ============================================================
+# OS
+# ============================================================
+
+**/.DS_Store
+**/.DS_Store?
+**/._*
+**/Thumbs.db
+**/ehthumbs.db
+**/Desktop.ini
+
+**/.idea/
+**/.vscode/
+**/*.sublime-project
+**/*.sublime-workspace
+**/*.swp
+**/*.swo
+**/*~
+
+# ============================================================
+# Misc
+# ============================================================
+
+**/*.bak
+**/*.tmp
+**/*.temp
+
+# --- repository-init appended (re-run) ---
+**/cache/
+**/logs/
+**/session/
+**/debugbar/
+**/secrets/
+**/dist/
+**/tmp/
+**/angular/node_modules/
+**/angular/dist/
+**/angular/.angular/
+**/angular/.ionic/
+**/.ionic/
+**/.docker/data/
+yarn-error.log*
+**/coverage/
+**/.nyc_output/
+**/workdocs/reports/coverage/
+**/.cache/
+**/.sass-cache/

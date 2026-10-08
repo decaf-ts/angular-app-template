@@ -1,0 +1,26 @@
+<app-header
+  [locale]="locale"
+  [showBackButton]="false"
+/>
+
+<ion-content
+  fullscreen="true"
+  [scrollY]="false"
+>
+  <main class="dcf-height-1-1">
+    <div class="">
+      <div>
+        @defer (when visible) {
+          Dashboard Content
+        } @placeholder {
+          <div class="dcf-loading-container">
+            <ion-spinner
+              color="primary"
+              name="crescent"
+            />
+          </div>
+        }
+      </div>
+    </div>
+  </main>
+</ion-content>

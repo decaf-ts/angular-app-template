@@ -1,0 +1,123 @@
+:host {
+  ::ng-deep {
+    ion-menu {
+      display: none !important;
+    }
+  }
+}
+
+.cmx-splash-screen-component {
+  position: fixed;
+  inset: 0;
+  background: var(--dcf-color-primary);
+
+  background: linear-gradient(
+    to bottom right,
+    var(--dcf-color-primary-shade),
+    var(--dcf-color-primary-tint),
+    var(--dcf-color-primary-tint)
+  );
+
+  // background: linear-gradient(to bottom right, #059669, #10b981, #34d399);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 1;
+  // transition: opacity 0.6s ease;
+  opacity: 1;
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+
+  &.hidden,
+  &.initialized {
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.96);
+  }
+
+  .title {
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: 1.15rem;
+    padding: 0rem 1rem;
+  }
+
+  .logo {
+    width: 80px;
+    // height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    ::ng-deep svg {
+      max-width: 80px;
+      animation:
+        bounceIn 0.5s cubic-bezier(0.25, 0.8, 0.25, 1) forwards,
+        glow 1.75s ease-in-out infinite 0.7s;
+      transform-origin: center;
+    }
+  }
+
+  .loader {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    width: 42px;
+    height: 42px;
+    border: 4px solid rgba(255, 255, 255, 0.4);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: loaderSpin 0.8s linear infinite;
+    // animation: waveSpin 0.9s ease-in-out infinite;
+    // animation: loaderSpin 0.5s linear infinite;
+    // animation: spinFast 1s cubic-bezier(0.55, 0.1, 0.45, 1) infinite;
+  }
+
+  @keyframes bounceIn {
+    0% {
+      transform: scale(0.1);
+      opacity: 0;
+    }
+
+    // 70% {
+    //   transform: scale(0.96);
+    // }
+    100% {
+      transform: scale(1);
+      // transform: scale(0.5);
+      opacity: 1;
+    }
+  }
+  @keyframes glow {
+    0% {
+      filter: drop-shadow(0 0 0px rgba(255, 255, 255, 0));
+    }
+    50% {
+      filter: drop-shadow(0 0 14px rgba(255, 255, 255, 0.7));
+    }
+    75% {
+      filter: drop-shadow(0 0 28px rgba(255, 255, 255, 0.7));
+    }
+    100% {
+      filter: drop-shadow(0 0 0px rgba(255, 255, 255, 0));
+    }
+  }
+
+  // @keyframes draw {
+  //   to {
+  //     stroke-dashoffset: 0;
+  //   }
+  // }
+
+  @keyframes loaderSpin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+}

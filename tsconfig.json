@@ -1,0 +1,49 @@
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true /* Allow default imports from modules with no default export. This does not affect code emit, just typechecking. */,
+    "strictPropertyInitialization": true, // default true
+    "skipLibCheck": true,
+    "noImplicitReturns": false, // default true
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "noFallthroughCasesInSwitch": true,
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "moduleResolution": "bundler",
+    "importHelpers": true,
+    "typeRoots": ["node_modules/@types"],
+    "target": "es2022",
+    "module": "es2020",
+    "lib": ["es2018", "DOM"],
+    "useDefineForClassFields": false,
+    "paths": {
+      "@decaf-ts/core/ram": ["./node_modules/@decaf-ts/core/lib/ram"],
+      "@decaf-ts/overrides/ui-decorators": [
+        "./node_modules/@decaf-ts/ui-decorators/lib/esm/model/overrides.js"
+      ]
+    }
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": false, // default true
+    "paths": {
+      "@decaf-ts/core/ram": ["./node_modules/@decaf-ts/core/lib/ram"],
+      "@decaf-ts/overrides/ui-decorators": [
+        "./node_modules/@decaf-ts/ui-decorators/lib/esm/model/overrides.js"
+      ]
+    }
+  }
+}
