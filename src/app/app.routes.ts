@@ -2,11 +2,13 @@ import { canActivate, canActivateChild } from './guards/auth.guard';
 import { RouteLike } from './utils/types';
 
 const useTabs = true;
-const loadRouteComponent = useTabs? () => import('./tabs/tabs.routes').then((m) => m.routes):import('./pages/dashboard/dashboard.page').then((m) => m.DashboardPage)
+
 export const routes: RouteLike[] = [
   {
     path: '',
-    [useTabs?`loadChildren`:`loadComponent`]:loadRouteComponent
+    [useTabs ? `loadChildren` : `loadComponent`]: useTabs
+      ? () => import('./tabs/tabs.routes').then((m) => m.routes)
+      : () => import('./pages/dashboard/dashboard.page').then((m) => m.DashboardPage),
   },
   {
     path: 'login',

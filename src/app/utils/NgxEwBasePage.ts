@@ -7,7 +7,6 @@ import { AuthService } from '../services/auth.service';
 import { EPIDefaultWriterControlRole, Namespaces } from './constants';
 import { IAccessControlRole } from './interfaces';
 import { DecafAxiosHttpAdapter } from './overrides';
-// import { BatchLayout } from 'src/app/layouts/BatchLayout';
 
 @Directive({
   standalone: true,
