@@ -19,7 +19,6 @@
 // Ionic css and Styles are imported in the main.scss file, so we don't need to import them here
 @use "@decaf-ts/for-angular/assets/main.scss";
 @use "./theme/variables.scss";
-@use "@pharmaledgerassoc/ptp-xml/lib/assets/css/leaflet.css" as *;
 
 .dcf-has-action {
   cursor: pointer !important;

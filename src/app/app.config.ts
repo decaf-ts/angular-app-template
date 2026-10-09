@@ -30,7 +30,6 @@ import { Model } from '@decaf-ts/decorator-validation';
 import { AxiosFlavour } from '@decaf-ts/for-http';
 import { Environment } from 'src/environments/environment';
 import pkg from '../../package.json';
-import { AppSelectFieldComponent } from './components/select-field/select-field.component';
 import { DecafAxiosHttpAdapter } from './utils/overrides';
 
 export const isLocalDevelopmentMode = angularDevMode() || Environment.ptp.host.includes('ptp.internal');
@@ -48,9 +47,6 @@ export const AppConfig: ApplicationConfig = {
     provideZoneChangeDetection({ eventCoalescing: true }),
     // provide locale components for decaf rendering engine
     // provideKeycloakAngular(),
-    provideDecafDynamicComponents(
-      AppSelectFieldComponent,
-    ),
     provideDecafPageTransition(),
 
     provideDecafDbAdapter(

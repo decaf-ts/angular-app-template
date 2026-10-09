@@ -2,8 +2,6 @@ import { Directive, inject, Inject, OnChanges, OnDestroy, SimpleChanges } from '
 import { OperationKeys } from '@decaf-ts/db-decorators';
 import { Model, ModelKeys } from '@decaf-ts/decorator-validation';
 import { CPTKN, getWindow, NgxModelPageDirective, NgxRouterService } from '@decaf-ts/for-angular';
-import { UIFunctionLike } from '@decaf-ts/ui-decorators';
-import { Product } from '@pharmaledgerassoc/ptp-toolkit/shared';
 import { shareReplay, takeUntil, timer } from 'rxjs';
 import { AuthService } from '../services/auth.service';
 import { EPIDefaultWriterControlRole, Namespaces } from './constants';
@@ -24,11 +22,6 @@ export class NgxEwBasePage extends NgxModelPageDirective implements OnChanges, O
   hasWriterAccess: boolean = false;
 
   override limit: number = 10;
-
-  productFilterOptionsMapper: UIFunctionLike = (item: Product) => ({
-    value: item.productCode,
-    text: item.inventedName,
-  });
 
   constructor(
     // eslint-disable-next-line @angular-eslint/prefer-inject
