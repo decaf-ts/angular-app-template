@@ -38,10 +38,6 @@ export class BaseHandler extends NgxEventHandler {
   static loadingMessage: string = 'operations.processing';
 
   static async beforeRender(instance: NgxEwBasePage, model: unknown): Promise<void> {
-    const isPla = await instance.isPlaUser();
-    if (isPla) {
-      uitablecol(UIKeys.LAST)(model, 'owner');
-    }
   }
 
   static async showLoading(message?: string): Promise<void> {

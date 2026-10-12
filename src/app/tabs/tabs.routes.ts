@@ -1,12 +1,12 @@
 import { Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
-import { canActivate } from '../guards/auth.guard';
+import {  canActivateChild } from '../guards/auth.guard';
 
 export const routes: Routes = [
   {
     path: 'tabs',
     component: TabsPage,
-    canActivate: [canActivate],
+    canActivateChild: [canActivateChild],
     children: [
       {
         path: 'tab1',

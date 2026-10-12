@@ -1,4 +1,4 @@
-import { Component, DestroyRef, inject, OnInit } from '@angular/core';
+import { Component, DestroyRef, HostListener, inject, OnInit } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { NavigationEnd, NavigationStart } from '@angular/router';
 
@@ -95,6 +95,22 @@ export class AppComponent extends NgxEwBasePage implements OnInit {
   constructor() {
     super('');
     this.appName = AppName;
+  }
+
+  @HostListener('window:LanguageChange', ['$event'])
+  changeLanguage(event: CustomEvent): void {
+    this.translateService.use(event.detail.data);
+  }
+
+  @HostListener('window:setInitialized', ['$event'])
+  setInitialized(event: CustomEvent): void {
+    this.initialized = event.detail.data;
+  }
+
+  @HostListener('window:setloggedIn', ['$event'])
+  setloggedIn(event: CustomEvent): void {
+    console.log('setLoggedin event:', event);
+    this.loggedIn = event.detail.data;
   }
 
   /**
@@ -198,11 +214,7 @@ export class AppComponent extends NgxEwBasePage implements OnInit {
         .pipe(
           takeUntilDestroyed(this.destroyRef),
           debounce(({ action }) =>
-            timer(
-              action === 'open'
-                ? SidebarStateService.HOVER_OPEN_DELAY
-                : SidebarStateService.HOVER_CLOSE_DELAY
-            )
+            timer(action === 'open' ? SidebarStateService.HOVER_OPEN_DELAY : SidebarStateService.HOVER_CLOSE_DELAY)
           )
         )
         .subscribe(({ action, target }) => {

@@ -1,0 +1,37 @@
+<ion-content [fullscreen]="true">
+  <main>
+    <div
+      [id]="uid"
+      class="cmx-splash-screen-component"
+      #component
+    >
+      <div class="form-container">
+        <div class="">
+          <div class="logo dcf-margin-medium">
+            <app-logo></app-logo>
+          </div>
+          <ion-card class="dcf-padding-medium">
+            <div class="title">
+              <ion-card-header>Register</ion-card-header>
+              <ion-card-subtitle>
+                Create your wallet to start earning rewards.
+              </ion-card-subtitle>
+            </div>
+            <div class="content">
+              <ngx-decaf-model-renderer
+                [model]="model"
+                (listenEvent)="handleEvent($event)"
+                [globals]="{ action: 'register'}"
+              ></ngx-decaf-model-renderer>
+
+              <div class="dcf-text-small text-black">
+                Already have an account?
+                <a class="dcf-has-action" routerLink="/login">Sign-in</a>
+              </div>
+            </div>
+          </ion-card>
+        </div>
+      </div>
+    </div>
+  </main>
+</ion-content>

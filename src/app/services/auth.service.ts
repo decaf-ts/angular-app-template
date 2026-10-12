@@ -1,7 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, Router } from '@angular/router';
 import { CrudOperations, OperationKeys } from '@decaf-ts/db-decorators';
-import { DB_ADAPTER_PROVIDER_TOKEN, DecafRepositoryAdapter, NgxRouterService } from '@decaf-ts/for-angular';
+import { DB_ADAPTER_PROVIDER_TOKEN, DecafRepositoryAdapter, NgxRouterService, windowEventEmitter } from '@decaf-ts/for-angular';
 import { LoggedClass } from '@decaf-ts/logging';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { shareReplay } from 'rxjs/operators';
@@ -398,5 +398,11 @@ export class AuthService extends LoggedClass {
       window.location.href = `${oauthUrl}/sign_out?rd=${encodeURIComponent(keycloakUrl)}`;
     }
     DecafAxiosHttpAdapter.token = undefined;
+  }
+
+  static setloggedIn(status: boolean): void {
+    windowEventEmitter("setloggedIn", {
+      data: status,
+    });
   }
 }

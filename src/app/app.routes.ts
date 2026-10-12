@@ -15,6 +15,10 @@ export const routes: RouteLike[] = [
     loadComponent: () => import('./pages/login/login.page').then((m) => m.LoginPage),
   },
   {
+    path: 'register',
+    loadComponent: () => import('./pages/register/register.page').then((m) => m.RegisterPage),
+  },
+  {
     path: 'tabs',
     canActivate: [canActivate],
     loadChildren: () => import('./tabs/tabs.routes').then((m) => m.routes),

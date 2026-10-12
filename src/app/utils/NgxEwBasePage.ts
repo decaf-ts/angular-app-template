@@ -52,10 +52,6 @@ export class NgxEwBasePage extends NgxModelPageDirective implements OnChanges, O
     this.changeDetectorRef.detectChanges();
   }
 
-  async isPlaUser(): Promise<boolean> {
-    return await this.authService.hasNameSpace(Namespaces.PLA);
-  }
-
   override async ngOnChanges(changes: SimpleChanges): Promise<void> {
     await super.ngOnChanges(changes);
     if (changes[ModelKeys.MODEL]) {
